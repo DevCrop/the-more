@@ -1,0 +1,162 @@
+@use "../abstracts" as *;
+
+.no-footer {
+  border-top: 1px solid var(--clr-surface-invert-16);
+  * {
+    font-size: 1.4rem;
+  }
+  &__inner {
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.4rem 0;
+    border-bottom: 1px solid var(--clr-surface-invert-8);
+    @include mq(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      border-bottom: 1px solid var(--clr-surface-invert-24);
+    }
+  }
+  &__privacy {
+    display: flex;
+    align-items: center;
+    @include mq(md) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--gp-sm);
+      width: 100%;
+      li {
+        width: 100%;
+      }
+    }
+    li {
+      a {
+        padding: 0 1rem;
+        p {
+          font-size: fluid(12, 14);
+        }
+      }
+      button {
+        padding: 1rem 1.8rem;
+        border: 1px solid var(--clr-surface-invert-16);
+        @include hasRadius(0.8rem);
+        @include mq(md) {
+          width: 100%;
+        }
+        align-items: center;
+        + ul {
+          position: absolute;
+          bottom: 5rem;
+          left: 0;
+          width: 100%;
+          background: var(--clr-surface-100);
+          border-radius: 0.8rem;
+          border: 1px solid var(--clr-surface-invert-16);
+          padding: 0.8rem 0;
+          box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+
+          transform: translateY(10%);
+          opacity: 0;
+          visibility: hidden;
+          transition: var(--tran-input);
+          z-index: 10;
+          overflow: auto;
+          &.visible {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+          }
+          a {
+            display: flex;
+            align-items: center;
+            padding: 0.4rem 1.6rem;
+            font-size: var(--fs-body-md);
+            height: calc(var(--input-height) * 0.75);
+            width: 100%;
+            padding: 0.4rem 1.6rem !important;
+            &:hover {
+              background: var(--clr-surface-16);
+            }
+          }
+        }
+      }
+      &:nth-child(2) {
+        a {
+          border-left: 1px solid var(--clr-surface-16);
+          border-right: 1px solid var(--clr-surface-16);
+        }
+      }
+      &:nth-child(3) {
+        a {
+          padding-right: 0;
+        }
+      }
+      &:nth-child(1) {
+        a {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  &__bottom {
+    padding: 2.4rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    @include mq(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+  }
+  &__address {
+    p {
+      font-size: fluid(12, 14);
+    }
+  }
+  &__logo {
+    width: 12.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__info {
+    width: 100%;
+    max-width: 64rem;
+    ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2.4rem;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        @include mq(md) {
+          gap: 0.4rem;
+          padding-bottom: 1.2rem;
+          width: 100%;
+          border-bottom: 1px solid var(--clr-surface-invert-8);
+        }
+        @include mq(sm) {
+          flex-wrap: wrap;
+        }
+        span {
+          font-weight: 600;
+        }
+        p {
+        }
+      }
+    }
+  }
+}

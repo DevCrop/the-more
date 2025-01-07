@@ -1,0 +1,20 @@
+{
+  "name": "sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass-comp": "sass --watch --style compressed resource/scss/style.scss resource/css/style.css",
+    "sass": "sass --watch resource/scss/style.scss resource/css/style.css",
+    "dev": "php -S localhost:8088"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prettier/plugin-php": "^0.21.0"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  }
+}

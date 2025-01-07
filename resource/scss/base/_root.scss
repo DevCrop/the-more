@@ -1,0 +1,108 @@
+@use "sass:map";
+@use "../abstracts" as *;
+
+$root-variables: recursive($tokens);
+
+:root {
+  @include generateVars($root-variables);
+  @include generateVars(map.get($themes, $app-theme), "clr");
+  @include generateResponsiveVars($variables);
+}
+
+@include generateThemeVars($themes);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html.lenis-stopped {
+  overflow: hidden;
+}
+html {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%;
+  &.is-transition {
+    transition: none !important;
+  }
+}
+
+html.is-changing .transition-main {
+  transition: opacity 250ms ease-in-out;
+}
+
+html.is-animating .transition-main {
+  opacity: 0;
+}
+
+%body {
+  font-family: var(--fm-body);
+  font-size: var(--fs-body-md);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--clr-text-body);
+  word-break: keep-all;
+}
+
+body {
+  @extend %body;
+  background: var(--clr-background-primary);
+  transition: var(--tran-bg);
+}
+
+::selection {
+  background-color: var(--clr-primary-main);
+  color: var(--clr-primary-on);
+}
+
+a {
+  font-family: var(--fm-body);
+  text-decoration: none;
+  color: var(--clr-text-body);
+  display: block;
+}
+
+button {
+  @extend %body;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+input,
+textarea,
+select,
+form,
+fieldset,
+legend {
+  @extend %body;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  &::after {
+    content: none;
+  }
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  object-fit: cover;
+  display: block;
+}

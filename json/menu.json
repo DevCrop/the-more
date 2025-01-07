@@ -1,0 +1,98 @@
+{
+  "site_name": "블루스퀘어",
+  "pages": [
+    {
+      "title": "What's ON",
+      "en-title": "What's ON",
+      "dirname": "board",
+      "pages": [
+        {
+          "title": "What's ON",
+          "en-title": "What's ON",
+          "filename": "gallery"
+        }
+      ]
+    },
+    {
+      "title": "공연장 소개",
+      "en-title": "Venue Introduction",
+      "dirname": "intro",
+      "pages": [
+        {
+          "title": "블루스퀘어",
+          "en-title": "Blue Square",
+          "filename": "bluesquare"
+        },
+        {
+          "title": "문화시설",
+          "en-title": "Cultural Facility",
+          "filename": "fac"
+        },
+        {
+          "title": "편의시설 ",
+          "en-title": "Convenience Facility",
+          "filename": "service"
+        },
+        {
+          "title": "층별안내",
+          "en-title": "Floor Guide",
+          "filename": "floor"
+        }
+      ]
+    },
+    {
+      "title": "대관 안내",
+      "en-title": "Rental Information",
+      "dirname": "rental",
+      "pages": [
+        {
+          "title": "대관절차",
+          "en-title": "Rental Process",
+          "filename": "process"
+        },
+        {
+          "title": "대관료",
+          "en-title": "Rental Fees",
+          "filename": "fee"
+        },
+        {
+          "title": "대관자료",
+          "en-title": "Rental Documents",
+          "filename": "docx"
+        },
+        {
+          "title": "대관신청",
+          "en-title": "Rental Inquiry",
+          "filename": "inquiry"
+        }
+      ]
+    },
+    {
+      "title": "고객센터",
+      "en-title": "Customer Center",
+      "dirname": "cs",
+      "pages": [
+        {
+          "title": "공지사항",
+          "en-title": "Notice",
+          "filename": "list"
+        },
+        {
+          "title": "FAQ",
+          "en-title": "FAQ",
+          "filename": "faq"
+        },
+        {
+          "title": "오시는 길",
+          "en-title": "Contact Us",
+          "filename": "contact"
+        },
+        {
+          "title": "주차안내",
+          "en-title": "Parking Information",
+          "filename": "parking"
+        }
+      ]
+    }
+  ]
+}
