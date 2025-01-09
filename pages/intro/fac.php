@@ -183,7 +183,7 @@
                                             <li class="swiper-slide">
                                                 <div class="no-sub-tab-chart-info">
                                                     <div class="no-sub-tab-chart-title">
-                                                        <h2 class="no-heading-md">
+                                                        <h2 class="no-heading-lg">
                                                             좌석 배치도 /
                                                             <span class="fm-en no-heading-lg">1F</span>
                                                         </h2>
@@ -197,7 +197,7 @@
                                                                 <div class="no-sub-tab-table__info">
                                                                     <ul>
                                                                         <li>
-                                                                            <p class="no-heading-sm">1,066석</p>
+                                                                            <p class="no-body-lg --fw-bold">1,066석</p>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -249,7 +249,7 @@
                                             <li class="swiper-slide">
                                                 <div class="no-sub-tab-chart-info">
                                                     <div class="no-sub-tab-chart-title">
-                                                        <h2 class="no-heading-md">
+                                                        <h2 class="no-heading-lg">
                                                             좌석 배치도 /
                                                             <span class="fm-en no-heading-lg">2F</span>
                                                         </h2>
@@ -263,7 +263,7 @@
                                                                 <div class="no-sub-tab-table__info">
                                                                     <ul>
                                                                         <li>
-                                                                            <p class="no-heading-sm">430석</p>
+                                                                            <p class="no-body-lg --fw-bold">430석</p>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -285,7 +285,7 @@
                                             <li class="swiper-slide">
                                                 <div class="no-sub-tab-chart-info">
                                                     <div class="no-sub-tab-chart-title">
-                                                        <h2 class="no-heading-md">
+                                                        <h2 class="no-heading-lg">
                                                             좌석 배치도 /
                                                             <span class="fm-en no-heading-lg">3F</span>
                                                         </h2>
@@ -506,7 +506,7 @@
                                                         <li class="swiper-slide">
                                                             <div class="no-sub-tab-chart-info">
                                                                 <div class="no-sub-tab-chart-title">
-                                                                    <h2 class="no-heading-md">
+                                                                    <h2 class="no-heading-lg">
                                                                         좌석 배치도 /
                                                                         <span class="fm-en no-heading-lg">1F</span>
                                                                     </h2>
@@ -520,7 +520,8 @@
                                                                             <div class="no-sub-tab-table__info">
                                                                                 <ul>
                                                                                     <li>
-                                                                                        <p class="no-heading-sm">998석
+                                                                                        <p class="no-body-lg --fw-bold">
+                                                                                            998석
                                                                                         </p>
                                                                                     </li>
                                                                                 </ul>
@@ -567,7 +568,7 @@
                                                         <li class="swiper-slide">
                                                             <div class="no-sub-tab-chart-info">
                                                                 <div class="no-sub-tab-chart-title">
-                                                                    <h2 class="no-heading-md">
+                                                                    <h2 class="no-heading-lg">
                                                                         좌석 배치도 /
                                                                         <span class="fm-en no-heading-lg">2F</span>
                                                                     </h2>
@@ -628,7 +629,7 @@
                                                         <i class="fa-light fa-arrow-left-long"></i>
                                                     </div>
                                                 </div>
-                                                <div class="no-pd-lg--t">
+                                                <div class="no-pd-md--t">
                                                     <div
                                                         class="swiper no-sub-tab-chart-slider-thum-ground no-sub-tab-chart-slider-thum">
                                                         <ul class="swiper-wrapper">
@@ -665,7 +666,7 @@
                                                         <li class="swiper-slide">
                                                             <div class="no-sub-tab-chart-info">
                                                                 <div class="no-sub-tab-chart-title">
-                                                                    <h2 class="no-heading-md">
+                                                                    <h2 class="no-heading-lg">
                                                                         좌석 배치도 /
                                                                         <span class="fm-en no-heading-lg">1F</span>
                                                                     </h2>
@@ -679,7 +680,8 @@
                                                                             <div class="no-sub-tab-table__info">
                                                                                 <ul>
                                                                                     <li>
-                                                                                        <p class="no-heading-sm">최대
+                                                                                        <p class="no-body-lg --fw-bold">
+                                                                                            최대
                                                                                             2,400명 수용 (2,000명 권장) </p>
                                                                                     </li>
                                                                                 </ul>
@@ -725,7 +727,7 @@
                                                         <li class="swiper-slide">
                                                             <div class="no-sub-tab-chart-info">
                                                                 <div class="no-sub-tab-chart-title">
-                                                                    <h2 class="no-heading-md">
+                                                                    <h2 class="no-heading-lg">
                                                                         좌석 배치도 /
                                                                         <span class="fm-en no-heading-lg">2F</span>
                                                                     </h2>
@@ -786,7 +788,7 @@
                                                         <i class="fa-light fa-arrow-left-long"></i>
                                                     </div>
                                                 </div>
-                                                <div class="no-pd-lg--t">
+                                                <div class="no-pd-md--t">
                                                     <div
                                                         class="swiper no-sub-tab-chart-slider-thum-stand no-sub-tab-chart-slider-thum">
                                                         <ul class="swiper-wrapper">
@@ -983,9 +985,9 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="no-pd-lg--t">
+                            <div class="no-pd-2xl--t">
                                 <h4 class="no-heading-md">3F 연습실</h4>
-                                <div class="no-pd-sm--t">
+                                <div class="no-pd-md--t">
                                     <div class="swiper no-sub-tab-contents-slider-1 no-sub-tab-contents-slider">
                                         <ul class="swiper-wrapper">
                                             <?php for ($i = 1; $i < 5 ; $i++) :?>
@@ -1005,9 +1007,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="no-pd-lg--t">
+                            <div class="no-pd-2xl--t">
                                 <h4 class="no-heading-md">B1F 연습실</h4>
-                                <div class="no-pd-sm--t">
+                                <div class="no-pd-md--t">
                                     <div class="swiper no-sub-tab-contents-slider-2 no-sub-tab-contents-slider">
                                         <ul class="swiper-wrapper">
                                             <?php for ($i = 1; $i < 4 ; $i++) :?>

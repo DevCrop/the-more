@@ -10,6 +10,16 @@
           "title": "What's ON",
           "en-title": "What's ON",
           "filename": "gallery"
+        },
+        {
+          "title": "What's ON-양",
+          "en-title": "What's ON",
+          "filename": "gallery_y"
+        },
+        {
+          "title": "What's ON-준",
+          "en-title": "What's ON",
+          "filename": "gallery_j"
         }
       ]
     },

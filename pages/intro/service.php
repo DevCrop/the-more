@@ -640,8 +640,8 @@
                                         <li class="--box">
                                             <div class="no-pd-sm--b">
                                                 <div class="--box-info ">
-                                                    <ul class="f fd-c no-gap-md">
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                    <ul class="">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>대여방법</h3>
                                                             </div>
@@ -657,7 +657,7 @@
                                                                 </ul>
                                                             </div>
                                                         </li>
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>이용금액</h3>
                                                             </div>
@@ -671,7 +671,7 @@
                                                                 </ul>
                                                             </div>
                                                         </li>
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>수령위치</h3>
                                                             </div>
@@ -685,7 +685,7 @@
                                                                 </ul>
                                                             </div>
                                                         </li>
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>수령 가능시간</h3>
                                                             </div>
@@ -699,7 +699,7 @@
                                                                 </ul>
                                                             </div>
                                                         </li>
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>예약하기</h3>
                                                             </div>
@@ -732,8 +732,8 @@
 
                                             <div class="no-pd-md--t">
                                                 <div class="--box-notice">
-                                                    <ul class="f fd-c no-gap-md">
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                    <ul class="">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>주의사항</h3>
                                                             </div>
@@ -804,15 +804,15 @@
                                         <li class="--box">
                                             <div class="no-pd-sm--b">
                                                 <div class="--box-info ">
-                                                    <ul class="f fd-c no-gap-md">
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                    <ul class="">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>위치</h3>
                                                             </div>
                                                             <div class="--box-info-desc">
                                                                 <ul class="f fd-c no-gap-xs">
                                                                     <li>
-                                                                        <ul class="grid-col-2-10 no-gap-xs">
+                                                                        <ul class="">
                                                                             <li>
                                                                                 <span>
                                                                                     신한카드홀
@@ -827,7 +827,7 @@
                                                                         </ul>
                                                                     </li>
                                                                     <li>
-                                                                        <ul class="grid-col-2-10 no-gap-xs">
+                                                                        <ul class="">
                                                                             <li>
                                                                                 <span>
                                                                                     마스터카드홀
@@ -845,14 +845,14 @@
                                                                 </ul>
                                                             </div>
                                                         </li>
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>운영시간</h3>
                                                             </div>
                                                             <div class="--box-info-desc">
                                                                 <ul class="f fd-c no-gap-xs">
                                                                     <li>
-                                                                        <ul class="grid-col-2-10 no-gap-xs">
+                                                                        <ul class="">
                                                                             <li>
                                                                                 <span>
                                                                                     신한카드홀
@@ -868,7 +868,7 @@
                                                                         </ul>
                                                                     </li>
                                                                     <li>
-                                                                        <ul class="grid-col-2-10 no-gap-xs">
+                                                                        <ul class="">
                                                                             <li>
                                                                                 <span>
                                                                                     마스터카드홀
@@ -891,8 +891,8 @@
 
                                             <div class="no-pd-md--t">
                                                 <div class="--box-notice">
-                                                    <ul class="f fd-c no-gap-md">
-                                                        <li class="grid-col-2-10 no-gap-xs">
+                                                    <ul class="">
+                                                        <li class="">
                                                             <div class="--box-info-title">
                                                                 <h3>주의사항</h3>
                                                             </div>

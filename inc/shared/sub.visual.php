@@ -34,7 +34,7 @@ $cur_lnb_sub = $CUR_PAGE_LIST[1]['en-title'];
     </div>
     <div class="no-sub-visual-txt">
         <div class="no-sub-visual-txt-h2">
-            <h2 class="no-display-md ">
+            <h2 class="no-display-sm ">
                 <?=$cur_lnb?>
             </h2>
         </div>

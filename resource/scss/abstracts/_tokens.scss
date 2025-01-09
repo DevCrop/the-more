@@ -41,33 +41,33 @@ $font-sizes: (
   display: (
     xl: fluid($spacing-16, $spacing-42),
     // 80, 168
-    lg: fluid($spacing-9, $spacing-32),
+    lg: fluid($spacing-10, $spacing-32),
     // 64, 128
-    md: fluid($spacing-7, $spacing-22),
+    md: fluid($spacing-8, $spacing-22),
     // 40, 88
-    sm: fluid($spacing-6, $spacing-16),
-    // 32, 64
+    sm: fluid($spacing-7, $spacing-16),
+    // 20, 64
   ),
   heading: (
-    xl: fluid($spacing-8, $spacing-12),
+    xl: fluid($spacing-6, $spacing-12),
     // 32, 48
-    lg: fluid($spacing-6, $spacing-10),
+    lg: fluid($spacing-5, $spacing-10),
     // 28, 40
-    md: fluid($spacing-5, $spacing-8),
+    md: fluid($spacing-4-5, $spacing-8),
     // 24, 32
     sm: fluid($spacing-4, $spacing-6),
     // 20, 24
   ),
   body: (
-    xl: fluid($spacing-4-5, $spacing-5),
+    xl: fluid($spacing-4, $spacing-5),
     // 18,20
-    lg: fluid($spacing-4, $spacing-4-5),
+    lg: fluid($spacing-3, $spacing-4-5),
     // 16, 18
     md: fluid($spacing-3-5, $spacing-4),
     // 14, 16
-    sm: fluid($spacing-3, $spacing-3-5),
+    sm: fluid($spacing-2-5, $spacing-3-5),
     // 12, 14
-    xs: fluid($spacing-2-5, $spacing-3),
+    xs: fluid($spacing-2, $spacing-3),
     // 10, 12
   ),
 );
@@ -117,9 +117,9 @@ $gaps: (
   // 40, 80
   lg: fluid($spacing-8, $spacing-16),
   // 32, 64
-  md: fluid($spacing-6, $spacing-8),
+  md: fluid($spacing-4, $spacing-8),
   // 24, 32
-  sm: fluid($spacing-4, $spacing-6),
+  sm: fluid($spacing-3, $spacing-6),
   // 16, 24
   xs: fluid($spacing-2, $spacing-4),
   // 8, 16

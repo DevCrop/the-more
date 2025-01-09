@@ -1,7 +1,5 @@
 @use "../abstracts" as *;
-main {
-  position: relative;
-}
+
 .no-sub {
   &-breadcrumb {
     position: absolute;
@@ -22,17 +20,23 @@ main {
   &-visual {
     width: 100%;
     position: relative;
-    height: fluid(140, 420);
+    height: fluid(120, 360);
     margin-top: var(--header-height);
     overflow: hidden;
     &-txt {
       position: absolute;
       top: 50%;
       overflow: hidden;
-      padding: 4rem 0;
       left: 50%;
       width: 100%;
+      height: 100%;
       transform: translate(-50%, -50%);
+      @include mq(md) {
+        top: inherit;
+        bottom: 0;
+        transform: translateX(-50%);
+        height: 60%;
+      }
       &-p {
         position: absolute;
         text-transform: uppercase;
@@ -54,10 +58,13 @@ main {
       }
       &-h2 {
         max-width: 1320px;
+        height: 100%;
         margin-left: auto;
         margin-right: auto;
         padding-left: var(--app-gutter);
         padding-right: var(--app-gutter);
+        display: flex;
+        align-items: center;
       }
     }
     h2 {
@@ -204,10 +211,9 @@ main {
         display: grid;
         grid-template-columns: 4fr 8fr;
         position: relative;
-        gap: calc(var(--app-gutter) * 2);
+        gap: var(--gp-md);
         @include mq(lg) {
           grid-template-columns: 1fr;
-          gap: var(--app-gutter);
         }
       }
       &__title {
@@ -232,11 +238,13 @@ main {
         }
       }
       &__desc {
-        font-size: fluid(15, 18);
         ul {
           display: flex;
           flex-direction: column;
-          gap: fluid(8, 12);
+          gap: var(--gp-2xs);
+          @include mq(md) {
+            gap: var(--gp-3xs);
+          }
           li {
           }
         }
@@ -250,25 +258,26 @@ main {
         flex-direction: column;
         border-top: 2px solid var(--clr-surface-invert-24);
         > li {
-          padding: 2rem 0;
+          padding: var(--pd-xs) 0;
           display: grid;
-          grid-template-columns: 2fr 10fr;
+          grid-template-columns: 3fr 9fr;
           border-bottom: 1px solid var(--clr-surface-invert-16);
           align-items: center;
+
           h4 {
-            font-size: var(--fs-body-xl);
-            font-weight: var(--fw-semibold);
+            font-size: var(--fs-heading-sm);
           }
           @include mq(md) {
-            padding: 1.6rem 0;
-            gap: 1rem;
             grid-template-columns: 1fr;
+            gap: var(--gp-3xs);
+            padding: var(--pd-sm) 0;
           }
         }
       }
       &__title {
       }
       &__info {
+        font-size: var(--fs-body-lg);
         ul {
           display: flex;
           align-items: center;
@@ -276,7 +285,7 @@ main {
           li {
             p {
               span {
-                font-weight: var(--fw-semibold);
+                font-weight: var(--fw-bold);
               }
             }
           }
@@ -296,10 +305,9 @@ main {
       &-info {
         display: grid;
         grid-template-columns: 4fr 8fr;
-        gap: calc(var(--app-gutter) * 2);
+        gap: var(--gp-md);
         @include mq(md) {
           grid-template-columns: 1fr;
-          gap: var(--app-gutter);
         }
       }
       &-slider {
@@ -479,110 +487,6 @@ main {
         }
       }
     }
-
-    // &-container {
-    //   height: 100%;
-    //   width: 100%;
-    //   position: relative;
-    // }
-    // .show-1 {
-    //   position: relative;
-    //   bottom: -100%;
-    //   transform: scale(0.5);
-    //   @include hasRadius(24px);
-    //   height: 100dvh;
-    //   &-content {
-    //     height: 100%;
-    //   }
-    //   .char-text {
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 50%;
-    //     transform: translate(-50%, -50%);
-    //     width: 100%;
-    //     z-index: 2;
-    //     overflow: hidden;
-    //     h2 {
-    //       @include flex-center();
-    //       font-family: var(--fm-title);
-    //       font-weight: var(--fw-bold);
-    //       span {
-    //         opacity: 0;
-    //         transform: translateY(100%);
-    //       }
-    //     }
-    //   }
-    //   .image {
-    //     height: 100%;
-    //     img {
-    //       height: 100%;
-    //     }
-    //   }
-    // }
-    // .clip-path {
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   width: 100%;
-    //   height: 100dvh;
-    //   clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
-    //   background: transparent;
-    //   z-index: 10;
-    //   will-change: clip-path;
-    //   transition: all 1s ease-in-out;
-    // }
-    // .show-2 {
-    //   height: 100%;
-    //   img {
-    //     height: 100%;
-    //   }
-    //   .bg {
-    //     background: rgba(0, 0, 0, 0.24);
-    //   }
-    //   &-text {
-    //     position: absolute;
-    //     bottom: 0;
-    //     left: 50%;
-    //     transform: translateX(-50%);
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     gap: var(--gp-sm);
-    //     text-align: center;
-    //     z-index: 10;
-    //     width: 100%;
-    //     height: 100%;
-    //     max-width: 1320px;
-    //     word-break: keep-all;
-    //     &-inner {
-    //       position: absolute;
-    //       width: 100%;
-    //       bottom: -150%;
-    //     }
-    //     p {
-    //       opacity: 0.24;
-    //       visibility: hidden;
-    //       font-weight: var(--fw-medium);
-    //       line-height: 1.41;
-    //       font-size: fluid(16, 32);
-    //       padding-bottom: 10vw;
-    //       transform: translateY(100%);
-    //       word-break: keep-all;
-    //       @include mq(md) {
-    //         padding-right: var(--app-gutter);
-    //         padding-left: var(--app-gutter);
-    //         br {
-    //           display: none;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // .bg {
-    //   @include backdrop();
-    //   background: rgba(0, 0, 0, 0);
-    //   z-index: 1;
-    // }
     &-interpark {
       &-title {
         display: flex;
@@ -703,6 +607,9 @@ main {
   }
   &-fac {
     width: 100%;
+    &-logo {
+      text-transform: uppercase;
+    }
     &-contents {
       overflow-x: hidden;
     }

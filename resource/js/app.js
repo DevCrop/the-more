@@ -1,4 +1,3 @@
-console.log("app.js");
 gsap.registerPlugin(ScrollTrigger);
 
 function tooltip() {
@@ -273,137 +272,6 @@ function pallexImage() {
   );
 }
 
-function customCursor() {
-  // 1. Create the cursor element dynamically
-  const cursor = document.createElement("div");
-  cursor.classList.add("custom-cursor");
-  document.body.appendChild(cursor);
-  const mainVisualSliderLink = document.querySelector(
-    ".no-main-visual-slider a"
-  );
-
-  // 2. Add styles for the cursor
-  const style = document.createElement("style");
-  style.innerHTML = `
-    .custom-cursor {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 1px solid var(--clr-text-title);
-      pointer-events: none;
-      z-index: var(--z-index-cursor);
-      transform: translate(-50%, -50%);
-    }
-    .custom-cursor.more-text::after {
-      content: 'VIEW';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 5px;
-      color: var(--clr-text-title);
-    }
-    @media (max-width: 768px) {
-      .custom-cursor {
-        display: none;
-      }
-    }
-  `;
-
-  document.head.appendChild(style);
-
-  // 3. Track mouse movement
-  document.addEventListener("mousemove", (e) => {
-    const { clientX: x, clientY: y } = e;
-    gsap.to(cursor, {
-      x: x,
-      y: y,
-      duration: 0.2,
-      ease: "power2.out",
-    });
-  });
-
-  // 4. Add hover effects for interactive elements
-  const interactiveElements = ["button", "a", "input", "label"];
-
-  // Set a flag to track hover state
-  let isHovering = false;
-
-  interactiveElements.forEach((selector) => {
-    document.querySelectorAll(selector).forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        isHovering = true;
-        gsap.to(cursor, {
-          scale: 2.5,
-          duration: 0.2,
-          borderColor: "transparent",
-          borderColor: "var(--clr-text-title)",
-          mixBlendMode: "difference",
-        });
-      });
-      el.addEventListener("mouseleave", () => {
-        isHovering = false;
-        gsap.to(cursor, {
-          scale: 1,
-          duration: 0.2,
-          borderColor: "var(--clr-text-title)",
-          backgroundColor: "transparent",
-          mixBlendMode: "normal",
-        });
-      });
-    });
-  });
-
-  // 5. Add hover effect for .no-main-visual-slider a
-  const visualSliderLinks = document.querySelectorAll(
-    ".no-main-visual-slider a"
-  );
-
-  visualSliderLinks.forEach((link) => {
-    link.addEventListener("mouseenter", () => {
-      cursor.classList.add("more-text");
-      gsap.to(cursor, {
-        scale: 3,
-        duration: 0.2,
-      });
-    });
-
-    link.addEventListener("mouseleave", () => {
-      cursor.classList.remove("more-text");
-      gsap.to(cursor, {
-        scale: 1,
-        duration: 0.2,
-      });
-    });
-  });
-
-  // 6. Reset cursor state when leaving the document
-  document.addEventListener("mouseleave", () => {
-    if (!isHovering) {
-      gsap.to(cursor, {
-        scale: 1,
-        duration: 0.2,
-        mixBlendMode: "normal",
-      });
-    }
-  });
-
-  // 7. Add resize event to hide cursor below 768px
-  function handleResize() {
-    if (window.innerWidth <= 768) {
-      cursor.style.display = "none";
-    } else {
-      cursor.style.display = "block";
-    }
-  }
-
-  window.addEventListener("resize", handleResize);
-  handleResize(); // Call once on load
-}
-
 function moreInfo() {
   const moreInfoButtons = document.querySelectorAll(".more-info-wrap .no-btn");
 
@@ -426,15 +294,28 @@ function moreInfo() {
 
 function canvasAnimation() {
   const canvas = document.getElementById("waveCanvas");
+
+  if (!canvas) {
+    return;
+  }
   const ctx = canvas.getContext("2d");
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  // 캔버스 해상도 스케일 조정 (낮은 해상도로 렌더링)
+  const scale = 0.75; // 75% 해상도로 설정
+  canvas.width = window.innerWidth * scale;
+  canvas.height = window.innerHeight * scale;
+  ctx.scale(scale, scale);
 
-  const maxShapes = 8;
+  // 도형 설정
   const shapes = [];
   const colors = ["#1769FF", "#9747FF"];
+  const maxShapes = Math.min(5, Math.ceil(window.innerWidth / 400)); // 화면 크기에 따른 도형 수 제한
 
+  // 프레임 속도 제한
+  let lastTime = 0;
+  const targetFPS = 30; // 초당 30 프레임
+
+  // 도형 생성 함수
   function createShape(index) {
     const size = Math.random() * (canvas.width * 0.2) + canvas.width * 0.1;
     return {
@@ -442,17 +323,18 @@ function canvasAnimation() {
       y: Math.random() * canvas.height,
       size,
       phase: Math.random() * Math.PI * 2,
-      blur: Math.random() * 30 + 10, // Blur 줄이기
-      color: colors[index % 2], // 블루와 퍼플이 번갈아 선택되도록
-      speed: Math.random() * 0.5 + 0.2, // 속도 약간 증가
-      opacity: 0.24, // 초기 투명도는 0.24
-      driftX: Math.random() * 3 - 1.5, // 움직임 범위 확장
-      driftY: Math.random() * 3 - 1.5,
-      oscillationSpeed: Math.random() * 0.04 + 0.02, // 진동 속도 증가
-      oscillationAmount: Math.random() * 20 + 10, // 진동 범위 축소
+      blur: Math.random() * 15 + 5, // Blur 감소
+      color: colors[index % 2],
+      speed: Math.random() * 0.5 + 0.2,
+      opacity: 0.24, // 초기 투명도
+      driftX: Math.random() * 2 - 1, // 움직임 범위 축소
+      driftY: Math.random() * 2 - 1,
+      oscillationSpeed: Math.random() * 0.04 + 0.02,
+      oscillationAmount: Math.random() * 15 + 5, // 진동 범위 축소
     };
   }
 
+  // 도형 렌더링 함수
   function drawCircle(shape) {
     const { x, y, size, blur, color, opacity } = shape;
     const rgba = color.replace(")", `, ${opacity})`).replace("rgb", "rgba");
@@ -465,44 +347,51 @@ function canvasAnimation() {
     ctx.fill();
   }
 
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // 애니메이션 함수
+  function animate(timestamp) {
+    const delta = timestamp - lastTime;
 
-    shapes.forEach((shape) => {
-      // 부드러운 투명도 변화
-      shape.opacity = 0.24 + Math.abs(Math.sin(shape.phase)) * 0.76; // 0.24 ~ 1
+    // FPS 제한 (30FPS)
+    if (delta >= 1000 / targetFPS) {
+      lastTime = timestamp;
 
-      // 더 역동적인 움직임
-      shape.phase += shape.oscillationSpeed;
-      shape.x += Math.sin(shape.phase) * shape.driftX;
-      shape.y += Math.cos(shape.phase) * shape.driftY;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // 크기 진동 효과
-      const sizeOscillation = Math.sin(shape.phase) * shape.oscillationAmount;
-      const currentSize = shape.size + sizeOscillation;
+      shapes.forEach((shape) => {
+        shape.opacity = 0.24 + Math.abs(Math.sin(shape.phase)) * 0.76; // 0.24 ~ 1
+        shape.phase += shape.oscillationSpeed;
+        shape.x += Math.sin(shape.phase) * shape.driftX;
+        shape.y += Math.cos(shape.phase) * shape.driftY;
 
-      // 화면 경계 처리
-      if (shape.x < -currentSize) shape.x = canvas.width + currentSize;
-      if (shape.x > canvas.width + currentSize) shape.x = -currentSize;
-      if (shape.y < -currentSize) shape.y = canvas.height + currentSize;
-      if (shape.y > canvas.height + currentSize) shape.y = -currentSize;
+        const sizeOscillation = Math.sin(shape.phase) * shape.oscillationAmount;
+        const currentSize = shape.size + sizeOscillation;
 
-      drawCircle(shape);
-    });
+        // 화면 경계 처리
+        if (shape.x < -currentSize) shape.x = canvas.width + currentSize;
+        if (shape.x > canvas.width + currentSize) shape.x = -currentSize;
+        if (shape.y < -currentSize) shape.y = canvas.height + currentSize;
+        if (shape.y > canvas.height + currentSize) shape.y = -currentSize;
+
+        drawCircle(shape);
+      });
+    }
 
     requestAnimationFrame(animate);
   }
 
-  // 초기 도형 생성: 블루와 퍼플이 번갈아 추가되도록 설정
+  // 초기 도형 생성
   for (let i = 0; i < maxShapes; i++) {
     shapes.push(createShape(i));
   }
 
-  animate();
+  // 애니메이션 시작
+  animate(0);
 
+  // 창 크기 변경 시 캔버스 크기 조정
   window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth * scale;
+    canvas.height = window.innerHeight * scale;
+    ctx.scale(scale, scale);
   });
 }
 
@@ -549,16 +438,14 @@ function inputLineAnimation() {
     }
   }
 }
-
 function header(App, headerId = "header") {
   const headerEl = document.querySelector(`#${headerId}`);
-  const headerAnimation = document.querySelector(".no-header-animation");
   const headerSearch = headerEl.querySelector(".no-header__search button");
-  const headerLogo = headerEl.querySelector("h1");
   const searchView = document.querySelector(".no-search-view");
   const sitemapView = document.querySelector(".no-sitemap");
   const headerDarkModeToggle = headerEl.querySelector(".no-header__theme");
   const headerToggleButton = headerEl.querySelector(".no-header__toggle");
+  const headerMenu = headerEl.querySelector("nav"); // 메뉴 엘리먼트 선택
   const headLine = document.querySelector(".no-headline");
 
   function init() {
@@ -566,6 +453,8 @@ function header(App, headerId = "header") {
     darkMode();
     searchToggle();
     toggleMode();
+    menuOver();
+    menuLeave();
 
     window.addEventListener("scroll", () => {
       if (window.scrollY > 80) {
@@ -577,6 +466,28 @@ function header(App, headerId = "header") {
         headerEl.classList.remove("shadow");
         headerEl.classList.remove("hasHeadLine");
       }
+    });
+  }
+
+  // 메뉴 마우스 오버
+  function menuOver() {
+    headerMenu.addEventListener("mouseenter", () => {
+      headerEl.classList.add("active");
+      gsap.to(headerMenu, {
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    });
+  }
+
+  // 메뉴 마우스 리브
+  function menuLeave() {
+    headerMenu.addEventListener("mouseleave", () => {
+      headerEl.classList.remove("active");
+      gsap.to(headerMenu, {
+        duration: 0.5,
+        ease: "power3.out",
+      });
     });
   }
 
@@ -603,15 +514,37 @@ function header(App, headerId = "header") {
     const savedTheme = getCookie("theme");
     if (savedTheme) {
       document.documentElement.setAttribute("data-theme", savedTheme);
+      toggleImages(savedTheme);
     } else {
       document.documentElement.setAttribute("data-theme", "dark");
       setCookie("theme", "dark", 365);
+      toggleImages("dark");
     }
   }
 
   function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     setCookie("theme", theme, 365);
+    toggleImages(theme);
+  }
+
+  // 다크 모드 이미지 관리
+  function toggleImages(theme) {
+    const toggleImagesContainers =
+      document.querySelectorAll(".--toggle-images");
+
+    toggleImagesContainers.forEach((container) => {
+      const lightImg = container.querySelector(".--light-img");
+      const darkImg = container.querySelector(".--dark-img");
+
+      if (theme === "light") {
+        if (lightImg) lightImg.style.display = "block";
+        if (darkImg) darkImg.style.display = "none";
+      } else {
+        if (lightImg) lightImg.style.display = "none";
+        if (darkImg) darkImg.style.display = "block";
+      }
+    });
   }
 
   // 다크 모드 토글
@@ -623,9 +556,6 @@ function header(App, headerId = "header") {
     );
     const darkButton = headerDarkModeToggle.querySelector("[data-toggle-dark]");
     const circle = headerDarkModeToggle.querySelector(".circle");
-    const headerLogo = document.querySelector(".no-header__logo");
-    const toggleImagesContainers =
-      document.querySelectorAll(".--toggle-images");
 
     const updateTransform = (button) => {
       const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
@@ -634,34 +564,12 @@ function header(App, headerId = "header") {
         circle.style.transform = isSmallScreen
           ? "translate(11px, -13px)"
           : "translate(10px, -15px)";
-        headerLogo.classList.add("white-mode");
-        headerLogo.classList.remove("dark-mode");
         setTheme("light");
-
-        toggleImagesContainers.forEach((container) => {
-          const lightImg = container.querySelector(".--light-img");
-          const darkImg = container.querySelector(".--dark-img");
-          if (lightImg && darkImg) {
-            lightImg.style.display = "block";
-            darkImg.style.display = "none";
-          }
-        });
       } else if (button === darkButton) {
         circle.style.transform = isSmallScreen
           ? "translate(42px, -13px)"
           : "translate(50px, -15px)";
-        headerLogo.classList.add("dark-mode");
-        headerLogo.classList.remove("white-mode");
         setTheme("dark");
-
-        toggleImagesContainers.forEach((container) => {
-          const lightImg = container.querySelector(".--light-img");
-          const darkImg = container.querySelector(".--dark-img");
-          if (lightImg && darkImg) {
-            lightImg.style.display = "none";
-            darkImg.style.display = "block";
-          }
-        });
       }
     };
 
@@ -894,21 +802,6 @@ function intro(lenis, minutes = 30) {
     );
 }
 
-function manageTransitions(delay = 1000) {
-  // 1. Disable all transitions temporarily
-  const style = document.createElement("style");
-  style.innerHTML = `
-    * {
-      transition: none !important;
-    }
-  `;
-  document.head.appendChild(style);
-
-  setTimeout(() => {
-    document.head.removeChild(style);
-  }, delay);
-}
-
 function marquee() {
   const marquees = document.querySelectorAll('[wb-data="marquee"]');
 
@@ -977,10 +870,6 @@ function marquee() {
       gsap.to(tween, { timeScale: 1, duration: 1 }); // 다시 원래 속도로
     });
   });
-}
-
-function footer() {
-  console.log("footer");
 }
 
 function setupModalTriggers(lenis) {
@@ -1175,6 +1064,34 @@ function sectionTitleAnimation() {
     );
   });
 }
+function sectionCntAnimation() {
+  const sectionContents = document.querySelectorAll(".no-section-content");
+  if (!sectionContents.length) return;
+
+  // GSAP 애니메이션 설정
+  sectionContents.forEach((content) => {
+    gsap.fromTo(
+      content, // 콘텐츠 전체에 적용
+      {
+        opacity: 0, // 처음에 투명
+        y: 50, // 왼쪽에서 시작
+      },
+      {
+        opacity: 1, // 완전히 보이게
+        y: 0, // 제자리로 이동
+        duration: 1.5, // 애니메이션 지속 시간
+        ease: "power3.out", // 부드러운 감속 효과
+        scrollTrigger: {
+          trigger: content, // 콘텐츠를 트리거로 사용
+          start: "top 90%", // 뷰포트 상단에서 90% 지점에 있을 때 시작
+          end: "top 70%", // 뷰포트 상단에서 70% 지점에 있을 때 끝
+          scrub: false, // 스크롤에 따른 애니메이션 진행 비활성화
+          once: true, // 한 번만 애니메이션 실행
+        },
+      }
+    );
+  });
+}
 
 function visibleSmooth() {
   const visibleSmooth = document.querySelectorAll(".visible-smooth");
@@ -1203,35 +1120,6 @@ function visibleSmooth() {
           scrub: false,
           once: true,
           // markers: true, // 디버깅용 마커 (필요시 주석 해제)
-        },
-      }
-    );
-  });
-}
-
-function sectionCntAnimation() {
-  const sectionContents = document.querySelectorAll(".no-section-content");
-  if (!sectionContents.length) return;
-
-  // GSAP 애니메이션 설정
-  sectionContents.forEach((content) => {
-    gsap.fromTo(
-      content, // 콘텐츠 전체에 적용
-      {
-        opacity: 0, // 처음에 투명
-        y: 50, // 왼쪽에서 시작
-      },
-      {
-        opacity: 1, // 완전히 보이게
-        y: 0, // 제자리로 이동
-        duration: 1.5, // 애니메이션 지속 시간
-        ease: "power3.out", // 부드러운 감속 효과
-        scrollTrigger: {
-          trigger: content, // 콘텐츠를 트리거로 사용
-          start: "top 90%", // 뷰포트 상단에서 90% 지점에 있을 때 시작
-          end: "top 70%", // 뷰포트 상단에서 70% 지점에 있을 때 끝
-          scrub: false, // 스크롤에 따른 애니메이션 진행 비활성화
-          once: true, // 한 번만 애니메이션 실행
         },
       }
     );
@@ -1284,10 +1172,11 @@ function mainWorksAnimation() {
       modifier: 1,
       slideShadows: false,
     },
+    /*
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
-    },
+    },*/
     navigation: {
       nextEl: ".no-main-works-button .swiper-button-next",
       prevEl: ".no-main-works-button .swiper-button-prev",
@@ -1300,26 +1189,22 @@ function mainWorksAnimation() {
     },
 
     breakpoints: {
-      319: { slidesPerView: 1.3 },
-      424: { slidesPerView: 1.5 },
+      319: { slidesPerView: 1.5 },
       544: { slidesPerView: 2 },
-      767: {
-        slidesPerView: 2.4,
-      },
-      1024: {
+      768: {
         slidesPerView: 3,
       },
       1440: {
-        slidesPerView: 3.5,
+        slidesPerView: 4,
       },
       1664: {
         slidesPerView: 4,
       },
       1920: {
-        slidesPerView: 4.5,
+        slidesPerView: 5,
       },
       1921: {
-        slidesPerView: 5,
+        slidesPerView: 6,
       },
     },
   });
@@ -1482,17 +1367,29 @@ function swiperManager() {
     },
   });
 
-  // Sub Navigation Swiper
-  const radioSwiper1 = new Swiper(".no-radio-swiper-1", {
-    slidesPerView: "auto", // 자동 크기
-    spaceBetween: 24, // 슬라이드 간 간격
-    freeMode: true,
+  const mainSponsorSwiper1 = new Swiper(".no-main-sponsor-slider-1", {
+    slidesPerView: "auto",
+    grabCursor: true,
+    speed: 1200,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
   });
 
-  const radioSwiper2 = new Swiper(".no-radio-swiper-2", {
-    slidesPerView: "auto", // 자동 크기
-    spaceBetween: 24, // 슬라이드 간 간격
-    freeMode: true,
+  const mainSponsorSwiper2 = new Swiper(".no-main-sponsor-slider-2", {
+    slidesPerView: "auto",
+    grabCursor: true,
+    speed: 1200,
+    breakpoints: {
+      312: {
+        spaceBetween: 24,
+      },
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
   });
 
   // Shinhan Content Swiper
@@ -1573,6 +1470,17 @@ function swiperManager() {
     slidesPerView: "auto", // 자동 크기
     spaceBetween: 24, // 슬라이드 간 간격
     freeMode: true,
+    breakpoints: {
+      321: {
+        spaceBetween: 12,
+      },
+      768: {
+        spaceBetween: 20,
+      },
+      1024: {
+        spaceBetween: 24,
+      },
+    },
   });
 
   const subCategorySwiper = new Swiper(".no-sub-category-slider", {
@@ -1740,20 +1648,6 @@ function swiperManager() {
   });
 }
 
-function setupSliderScrollToMain(lenis) {
-  const buttons = document.querySelectorAll(".no-sub-tab-slider button");
-
-  const mainElement = document.querySelector("main");
-
-  if (!buttons.length || !mainElement) return;
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      lenis.scrollTo(0);
-    });
-  });
-}
-
 function isSticky(selector) {
   // 대상 요소 선택
   const targetElement = document.querySelector(selector);
@@ -1782,7 +1676,6 @@ function isSticky(selector) {
 function infiniteRotate(selector) {
   const target = document.querySelector(selector);
   if (!target) {
-    console.error(`Selector "${selector}" not found`);
     return;
   }
 
@@ -1897,18 +1790,77 @@ function input() {
     $(this).val("");
   });
 }
+
 function buttonManager(buttonSelector, listSelector, startYear = 2011) {
-  const buttonElement = document.querySelector(buttonSelector);
-  const listElement = document.querySelector(listSelector);
+  try {
+    const buttonElement = document.querySelector(buttonSelector);
+    const listElement = document.querySelector(listSelector);
 
-  if (!buttonElement || !listElement) {
-    console.warn("Required elements are missing.");
-    return;
+    // 버튼 또는 리스트가 존재하지 않으면 에러 메시지 출력 후 종료
+    if (!buttonElement) {
+      console.error(
+        `buttonManager Error: Button element not found for selector "${buttonSelector}"`
+      );
+      return;
+    }
+    if (!listElement) {
+      console.error(
+        `buttonManager Error: List element not found for selector "${listSelector}"`
+      );
+      return;
+    }
+
+    // 버튼 클릭 이벤트 등록
+    buttonElement.addEventListener("click", function () {
+      listElement.classList.toggle("visible");
+      this.classList.toggle("active");
+    });
+
+    // 리스트 내 input 요소의 checked 상태 처리
+    const inputs = listElement.querySelectorAll(
+      'input[type="radio"], input[type="checkbox"]'
+    );
+    if (inputs.length === 0) {
+      console.warn(
+        `buttonManager Warning: No input elements (radio/checkbox) found in "${listSelector}"`
+      );
+    }
+
+    inputs.forEach((input) => {
+      input.addEventListener("change", function () {
+        if (this.checked) {
+          listElement.classList.remove("visible"); // visible 클래스 제거
+          buttonElement.classList.remove("active"); // 버튼 active 클래스도 제거
+        }
+      });
+    });
+  } catch (error) {
+    console.error("buttonManager Error:", error);
   }
+}
 
-  buttonElement.addEventListener("click", function () {
-    listElement.classList.toggle("visible");
-    this.classList.toggle("active");
+function curstomCursor() {
+  const cursor = new MouseFollower({
+    stateDetection: {
+      container: "body",
+      // '-pointer': '.no-btn',
+    },
+  });
+}
+
+function filingRadio(selector) {
+  const elements = document.querySelectorAll(selector);
+
+  elements.forEach((element) => {
+    element.addEventListener("change", (e) => {
+      const parent = e.target.closest(".no-filing-btn");
+      document.querySelectorAll(".no-filing-btn").forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      if (e.target.checked) {
+        parent.classList.add("active");
+      }
+    });
   });
 }
 
@@ -1918,15 +1870,14 @@ class App {
   static init() {
     AOS.init();
     header(this);
-    manageTransitions(200); // 1-second delay
     this.lenis = initLenis();
     canvasAnimation(this);
     marquee(this);
-    footer(this);
     tabManager(this);
     subNavSwiper();
     swiperManager(this);
-    buttonManager(".no-form-date", ".date-list", 2000); // 연도 버튼 렌더링
+    filingRadio('.no-filing-btn input[type="radio"]');
+    buttonManager(".no-date-btn", ".no-date-list"); // 연도 버튼 렌더링
     buttonManager(".no-footer__privacy button", ".no-footer__privacy-list"); // 연도 버튼 렌더링
     processManager();
     input();
@@ -1938,16 +1889,12 @@ class App {
     moreInfo();
     mainWorksAnimation();
     subPageIntroAnimation();
-    //pallexImage();
-    customCursor();
+    curstomCursor();
     sectionTitleAnimation();
-    //initTheme();
-    isSticky(".no-form-head");
     isSticky(".no-sub-tab");
     sectionCntAnimation();
     visibleSmooth();
     subVisualAnimation();
-    setupSliderScrollToMain(this.lenis);
     setupModalTriggers(this.lenis);
   }
 }

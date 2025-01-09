@@ -6,8 +6,8 @@ $variables: (
   default: (
     header: (
       height: 9.6rem,
-      bg: var(--clr-surface-88),
-      bg-active: var(--clr-surface-88),
+      bg: var(--clr-surface-100),
+      bg-active: var(--clr-surface-100),
       menu-bg: var(--clr-surface-invert-8),
       menu-bg-active: var(--clr-surface-16),
       toggle-bg: var(--clr-surface-invert-8),
@@ -54,6 +54,7 @@ $variables: (
     ),
     input: (
       background: var(--clr-surface-invert-8),
+      height: 5.5rem,
     ),
     table: (
       head-background: var(--clr-surface-invert-8),
@@ -64,7 +65,6 @@ $variables: (
     lnb: (
       height: 5.5rem,
     ),
-    input-height: 5.5rem,
     tran: (
       short: 0.15s ease-in-out,
       long: 0.3s ease-in-out,

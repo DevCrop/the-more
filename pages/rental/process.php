@@ -17,8 +17,8 @@
     <section class="no-sub-process no-pd-2xl--y">
         <div class="no-container-xl">
             <div class="">
-                <h2 class="no-heading-lg no-section-title">Process</h2>
-                <div class="cnt no-pd-lg--t --process no-section-content">
+                <h2 class="no-heading-lg no-section-title">대관 Process</h2>
+                <div class="cnt no-pd-md--t --process no-section-content">
                     <ul class="grid-col-5 ">
                         <li class="active">
                             <span>대관공고</span>
@@ -155,109 +155,107 @@
             </div>
             <div class="no-pd-2xl--t no-section-content">
                 <h2 class="no-heading-lg">대관 정보</h2>
-                <div class="cnt no-pd-lg--t">
+                <div class="cnt no-pd-md--t">
                     <div class="--box-wrap">
                         <ul>
                             <li class="--box">
-                                <div class="no-pd-sm--b">
-                                    <div class="--box-info ">
-                                        <ul class="f fd-c no-gap-md">
-                                            <li class="grid-col-2-10 no-gap-sm">
-                                                <div class="--box-info-title">
-                                                    <h3>대관공고</h3>
-                                                </div>
-                                                <div class="--box-info-desc">
-                                                    <ul class="f fd-c no-gap-2xs">
-                                                        <li>
-                                                            <ul class="grid-col-2-10 no-gap-sm">
-                                                                <li>
-                                                                    <span>
-                                                                        신한카드홀
-                                                                    </span>
-                                                                </li>
+                                <div class="--box-info ">
+                                    <ul class="">
+                                        <li class="">
+                                            <div class="--box-info-title">
+                                                <h3>대관공고</h3>
+                                            </div>
+                                            <div class="--box-info-desc">
+                                                <ul class="">
+                                                    <li>
+                                                        <ul class="">
+                                                            <li>
+                                                                <span>
+                                                                    신한카드홀
+                                                                </span>
+                                                            </li>
 
-                                                                <li>
-                                                                    <p>
-                                                                        홈페이지 정기 대관 공고를 통한 접수
-                                                                    </p>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <ul class="grid-col-2-10 no-gap-sm">
-                                                                <li>
-                                                                    <span>
-                                                                        마스터카드홀
-                                                                    </span>
-                                                                </li>
+                                                            <li>
+                                                                <p>
+                                                                    홈페이지 정기 대관 공고를 통한 접수
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <ul class="">
+                                                            <li>
+                                                                <span>
+                                                                    마스터카드홀
+                                                                </span>
+                                                            </li>
 
-                                                                <li>
-                                                                    <p>
-                                                                        신한카드홀을 제외한 기타 공간은 별도의 공고 없이 수시 대관 접수
-                                                                    </p>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="grid-col-2-10 no-gap-sm">
-                                                <div class="--box-info-title">
-                                                    <h3>운영시간</h3>
-                                                </div>
-                                                <div class="--box-info-desc">
-                                                    <ul class="f fd-c no-gap-2xs">
-                                                        <li>
-                                                            <ul class="grid-col-2-10 no-gap-sm">
-                                                                <li>
-                                                                    <span>
-                                                                        신한카드홀
-                                                                    </span>
-                                                                </li>
+                                                            <li>
+                                                                <p>
+                                                                    신한카드홀을 제외한 기타 공간은 별도의 공고 없이 수시 대관 접수
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="--box-info-title">
+                                                <h3>운영시간</h3>
+                                            </div>
+                                            <div class="--box-info-desc">
+                                                <ul class="">
+                                                    <li>
+                                                        <ul class="">
+                                                            <li>
+                                                                <span>
+                                                                    신한카드홀
+                                                                </span>
+                                                            </li>
 
-                                                                <li>
-                                                                    <p>
-                                                                        공고 기간 中 홈페이지 대관안내 - 대관신청 페이지를 통해 신청
-                                                                    </p>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <ul class="grid-col-2-10 no-gap-sm">
-                                                                <li>
-                                                                    <span>
-                                                                        마스터카드홀
-                                                                    </span>
-                                                                </li>
+                                                            <li>
+                                                                <p>
+                                                                    공고 기간 中 홈페이지 대관안내 - 대관신청 페이지를 통해 신청
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <ul class="">
+                                                            <li>
+                                                                <span>
+                                                                    마스터카드홀
+                                                                </span>
+                                                            </li>
 
-                                                                <li>
-                                                                    <p>
-                                                                        각 홀별 담당자 개별 문의 후, 대관신청서 E-mail 접수 / 대관신청서 양식
-                                                                        대관안내 - 대관신청 페이지 참고
-                                                                    </p>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
+                                                            <li>
+                                                                <p>
+                                                                    각 홀별 담당자 개별 문의 후, 대관신청서 E-mail 접수 / 대관신청서 양식
+                                                                    대관안내 - 대관신청 페이지 참고
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
 
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="grid-col-2-10 no-gap-sm">
-                                                <div class="--box-info-title">
-                                                    <h3>대관심의 및 통보</h3>
-                                                </div>
-                                                <div class="--box-info-desc">
-                                                    <ul class="f fd-c no-gap-2xs">
-                                                        <li>
-                                                            <p>
-                                                                심의 결과 승인 여부 및 제출 필요 서류 개별 통보 (메일, 문자 또는 유선 통보)
-                                                            </p>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <div class="--box-info-title">
+                                                <h3>대관심의 및 통보</h3>
+                                            </div>
+                                            <div class="--box-info-desc">
+                                                <ul class="">
+                                                    <li>
+                                                        <span>
+                                                            심의 결과 승인 여부 및 제출 필요 서류 개별 통보 (메일, 문자 또는 유선 통보)
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
 
 

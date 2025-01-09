@@ -2,7 +2,7 @@
 
     <div class="no-container-2xl">
         <div class="no-footer__inner ">
-            <div class="no-footer__top">
+            <div class="no-footer__top no-pd-sm--b">
                 <h1 class="no-footer__logo">
                     <a href="#" class="--toggle-images">
                         <img src="<?=IMG_PATH?>/logo/Logo_C_White.png" alt="" class="--dark-img">
@@ -36,6 +36,7 @@
                             <p>
                                 기업공고
                             </p>
+                            <i class="fa-regular fa-arrow-right"></i>
                         </a>
                     </li>
                     <li>
@@ -43,35 +44,36 @@
                             <p>
                                 윤리경영 / 제보
                             </p>
+                            <i class="fa-regular fa-arrow-right"></i>
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="no-footer__bottom">
+            <div class="no-footer__bottom no-pd-sm--t">
                 <div class="no-footer__info">
                     <ul>
                         <li>
-                            <span>(주)인터파크씨어터 대표</span>
+                            <b>대표</b>
                             <p>최휘영</p>
                         </li>
                         <li>
-                            <span>FAX</span>
+                            <b>FAX</b>
                             <p>02-6399-7599</p>
                         </li>
                         <li>
-                            <span>E-Mail</span>
+                            <b>E-Mail</b>
                             <p>bluesquare@interparktriple.com</p>
                         </li>
                         <li>
-                            <span>사업자등록번호</span>
+                            <b>사업자등록번호</b>
                             <p>214-88-37365</p>
                         </li>
                         <li>
-                            <span>전화번호</span>
+                            <b>전화번호</b>
                             <p>1544-1591 (장애인 전용안내 포함 / 09 : 00 - 18 : 00)</p>
                         </li>
                         <li>
-                            <span>영업시간</span>
+                            <b>영업시간</b>
                             <p>오전 11:00 ~ 22:30(월요일 휴관)</p>
                         </li>
                     </ul>
@@ -88,8 +90,11 @@
 </footer>
 
 <div class="no-top-btn">
-    <button type="button">
-        <i class="fa-regular fa-arrow-up-long"></i>
+    <button type="button" class="active">
+        <div class="arrow">
+            <i class="fa-regular fa-arrow-up-long" aria-hidden="true"></i>
+            <i class="fa-regular fa-arrow-up-long" aria-hidden="true"></i>
+        </div>
     </button>
 </div>
 
