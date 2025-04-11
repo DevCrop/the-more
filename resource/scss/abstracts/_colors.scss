@@ -1,0 +1,175 @@
+@use "./functions" as *;
+
+//----------------------------------------
+// Primitives
+//----------------------------------------
+$clr-primary-50: #e6e8f2;
+$clr-primary-100: #c1c6df;
+$clr-primary-200: #99a1ca;
+$clr-primary-300: #737db5;
+$clr-primary-400: #5661a6;
+$clr-primary-500: #3a4797;
+$clr-primary-600: #343f8e;
+$clr-primary-700: #2b3683;
+$clr-primary-800: #242c77;
+$clr-primary-900: #171c61;
+
+$clr-secondary-50: #d4f6f2;
+$clr-secondary-100: #92e9dc;
+$clr-secondary-200: #00dac4;
+$clr-secondary-300: #00c7ab;
+$clr-secondary-400: #00b798;
+$clr-secondary-500: #00a885;
+$clr-secondary-600: #009a77;
+$clr-secondary-700: #008966;
+$clr-secondary-800: #007957;
+$clr-secondary-900: #005b38;
+
+$clr-base-white: #fff;
+$clr-base-black: #000;
+
+$clr-gray-50: #fafafa;
+$clr-gray-100: #f5f5f5;
+$clr-gray-200: #eeeeee;
+$clr-gray-300: #e0e0e0;
+$clr-gray-400: #bdbdbd;
+$clr-gray-500: #9e9e9e;
+$clr-gray-600: #757575;
+$clr-gray-700: #616161;
+$clr-gray-800: #424242;
+$clr-gray-900: #212121;
+$clr-gray-950: #0e100f;
+
+//----------------------------------------
+// Light Theme
+//----------------------------------------
+$colors: (
+  base: (
+    white: $clr-base-white,
+    black: $clr-base-black,
+  ),
+  primary: (
+    main: $clr-primary-900,
+    hover: $clr-primary-500,
+    focus: $clr-primary-700,
+    text: $clr-base-white,
+    outline: $clr-primary-900,
+    disabled: $clr-primary-100,
+    disabled-text: $clr-primary-300,
+  ),
+  secondary: (
+    main: $clr-secondary-300,
+    hover: $clr-secondary-400,
+    focus: $clr-secondary-400,
+    text: $clr-base-white,
+    outline: $clr-secondary-300,
+    disabled: $clr-gray-600,
+  ),
+  gray: (
+    main: $clr-gray-300,
+    hover: $clr-gray-400,
+    focus: $clr-gray-400,
+    text: $clr-base-black,
+    outline: $clr-gray-400,
+    disabled: $clr-gray-600,
+  ),
+  black: (
+    main: $clr-base-black,
+    hover: $clr-gray-950,
+    focus: $clr-gray-900,
+    text: $clr-base-white,
+    outline: $clr-base-black,
+    disabled: $clr-gray-600,
+  ),
+  white: (
+    main: $clr-base-white,
+    hover: $clr-gray-50,
+    focus: $clr-gray-100,
+    text: $clr-base-black,
+    outline: $clr-base-white,
+    disabled: $clr-gray-600,
+  ),
+  surface: (
+    main: $clr-base-white,
+    light: $clr-gray-50,
+  ),
+  text: (
+    headline: $clr-base-black,
+    heading: $clr-gray-950,
+    body: $clr-gray-900,
+    label: $clr-gray-800,
+    desc: $clr-gray-500,
+    placeholder: $clr-gray-400,
+  ),
+  border: (
+    main: $clr-gray-300,
+    light: $clr-gray-50,
+  ),
+  input: (
+    main: 0px 0px 3px 0px rgba(0, 27, 55, 0.16),
+    hover: 0px 0px 3px 0px rgba(0, 27, 55, 0.16),
+    focus: 0px 0px 3px 0px rgba(0, 27, 55, 0.16),
+  ),
+);
+
+//----------------------------------------
+// Dark Theme
+//----------------------------------------
+$dark-colors: (
+  base: (
+    white: $clr-base-white,
+    black: $clr-base-black,
+  ),
+  primary: (
+    main: $clr-primary-200,
+    hover: $clr-primary-300,
+    focus: $clr-primary-300,
+    text: $clr-gray-950,
+    outline: $clr-primary-200,
+    disabled: $clr-gray-600,
+  ),
+  secondary: (
+    main: $clr-secondary-200,
+    hover: $clr-secondary-300,
+    focus: $clr-secondary-300,
+    text: $clr-gray-950,
+    outline: $clr-secondary-200,
+    disabled: $clr-gray-600,
+  ),
+  gray: (
+    main: $clr-gray-600,
+    hover: $clr-gray-700,
+    focus: $clr-gray-700,
+    text: $clr-gray-50,
+    outline: $clr-gray-600,
+    disabled: $clr-gray-500,
+  ),
+  black: (
+    main: $clr-base-black,
+    hover: $clr-gray-950,
+    focus: $clr-gray-900,
+    text: $clr-base-white,
+    outline: $clr-base-black,
+    disabled: $clr-gray-600,
+  ),
+  white: (
+    main: $clr-base-white,
+    hover: $clr-gray-50,
+    focus: $clr-gray-100,
+    text: $clr-base-black,
+    outline: $clr-base-white,
+    disabled: $clr-gray-600,
+  ),
+  surface: (
+    main: $clr-gray-950,
+    25: $clr-gray-900,
+    50: $clr-gray-800,
+  ),
+  text: (
+    headline: $clr-base-white,
+    heading: $clr-gray-50,
+    body: $clr-gray-50,
+    label: $clr-gray-100,
+    desc: $clr-gray-300,
+  ),
+);

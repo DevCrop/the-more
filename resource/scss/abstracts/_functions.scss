@@ -1,91 +1,66 @@
-@use "sass:math";
 @use "sass:meta";
+@use "sass:math";
 @use "sass:map";
-@use "./primitives" as prim;
+@use "sass:list";
+@use "sass:string";
 
-@function fluid(
-  $y1,
-  $y2,
-  $x1: prim.$app-screen-min,
-  $x2: prim.$app-screen-max
-) {
-  // font-size: clamp([min]rem, [v]vw + [r]rem, [max]rem);
-  // font-size: clamp(2.25rem, 2vw + 1.5rem, 3.25rem);
-  // y = v / 100 * x + r
-
-  // y1 : 최소글꼴크기 ex) 36px
-  // y2 : 최대글꼴크기 ex) 52px
-  // x1: 최소화면크기 ex) 600px
-  // x2: 최대화면크기 ex) 1400px
-
-  // test
-  // $y1: 36;
-  // $y2: 52;
-  // $x1: 600;
-  // $x2: 1400;
-  @if ($x1 == null) {
-    $x1: 375;
-  }
-  @if ($x2 == null) {
-    $x2: 1920;
-  }
-
-  $v: math.div(($y2 - $y1) * 100, $x2 - $x1);
-  $r: math.div(($x1 * $y2) - ($x2 * $y1), ($x1 - $x2));
-
-  $min: $y1 * 0.1rem;
-  $base: $r * 0.1rem;
-  $max: $y2 * 0.1rem;
-  $vw: $v * 1vw;
-
-  @return clamp($min, $vw + $base, $max);
+@function clr($color) {
+    @return var(--clr-#{$color});
 }
 
-@function minus-fluid($y1, $y2, $x1: 375, $x2: 1920) {
-  @if ($x1 == null) {
-    $x1: 375;
-  }
-  @if ($x2 == null) {
-    $x2: 1920;
-  }
-
-  $v: math.div(($y2 - $y1) * 100, $x2 - $x1);
-  $r: math.div(($x1 * $y2) - ($x2 * $y1), ($x1 - $x2));
-
-  $min: $y1 * 0.1rem;
-  $base: $r * 0.1rem;
-  $max: $y2 * 0.1rem;
-  $vw: $v * 1vw;
-
-  @return clamp(-#{$min}, -#{$vw} + -#{$base}, -#{$max});
+@function family($color) {
+    @return var(--family-#{$color});
 }
 
-@function recursive($items, $prefix: null) {
-  $arr: ();
-  $innerArr: ();
+@function flatten-map($map, $prefix: "") {
+    $stack: ();
 
-  @if (meta.type-of($items) != "map") {
-    @return ();
-  }
+    @if (meta.type-of($map) == "map" and list.length($map) == 0) {
+        @return ();
+    }
 
-  @each $key, $value in $items {
-    $type: meta.type-of($value);
-    $newPrefix: if($prefix == null, "#{$key}", "#{$prefix}-#{$key}");
-    $innerArr: if(
-      $type == "map",
-      map.merge($innerArr, recursive($value, $newPrefix)),
-      map.merge(
-        $innerArr,
-        (
-          $newPrefix: $value,
-        )
-      )
-    );
-  }
+    @each $key, $value in $map {
+        $currentKey: $prefix;
 
-  @return map.merge($innerArr, $arr);
+        @if (string.length($prefix) > 0) {
+            $currentKey: "#{$prefix}-#{$key}";
+        } @else {
+            $currentKey: "#{$key}";
+        }
+
+        @if (meta.type-of($value) == "map") {
+            $stack: map.merge($stack, flatten-map($value, $currentKey));
+        } @else {
+            $stack: map.merge(
+                $stack,
+                (
+                    $currentKey: $value,
+                )
+            );
+        }
+    }
+
+    @return $stack;
 }
 
-@function rem($px) {
-  @return 0.1rem * $px;
+@function strip-unit($number) {
+    @return math.div($number, ($number * 0 + 1));
+}
+
+@function fluid($y1, $y2, $x1: 375, $x2: 1920) {
+    // `rem`이 포함된 경우 숫자로 변환
+    $y1-num: if(math.unit($y1) == "rem", strip-unit($y1) * 10, strip-unit($y1));
+    $y2-num: if(math.unit($y2) == "rem", strip-unit($y2) * 10, strip-unit($y2));
+
+    // 수식 계산 (CSS 변수 포함 가능)
+    $v: math.div(($y2-num - $y1-num) * 100, $x2 - $x1);
+    $r: math.div(($x1 * $y2-num) - ($x2 * $y1-num), ($x1 - $x2));
+
+    // rem 변환 (0.1배수)
+    $min: $y1-num * 0.1rem;
+    $base: $r * 0.1rem;
+    $max: $y2-num * 0.1rem;
+    $vw: $v * 1vw;
+
+    @return clamp($min, $vw + $base, $max);
 }

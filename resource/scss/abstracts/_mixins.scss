@@ -1,152 +1,15 @@
-@use "sass:map";
 @use "sass:meta";
-@use "./functions" as func;
-@use "./primitives" as prim;
-@use "./variables" as var;
+@use "sass:map";
+@use "sass:string";
 
-@mixin mq($key-or-size, $direction: "max") {
-  $breakpoints: var.$breakpoints;
-
-  @if (meta.type-of($key-or-size) == "string") {
-    $size: map.get($breakpoints, $key-or-size);
-    @media (#{$direction}-width: #{$size}px) {
-      @content;
-    }
-  } @else if (meta.type-of($key-or-size) == "number") {
-    @media (#{$direction}-width: #{$key-or-size}px) {
-      @content;
-    }
-  } @else {
-    @error "No found breakpoint: #{$key-or-size}";
-  }
-}
-
-@mixin setupTypography($items) {
-  $fillable: "fs", "fm", "lh", "ls", "fw";
-  $breakpoints: var.$breakpoints;
-
-  @each $key, $map in $items {
-    @each $size, $value in $map {
-      .#{prim.$app-id}-#{$key}-#{$size} {
-        @if (map.has-key($value, "fs")) {
-          font-size: map.get($value, "fs");
-        }
-        @if (map.has-key($value, "fm")) {
-          font-family: map.get($value, "fm");
-        }
-        @if (map.has-key($value, "lh")) {
-          line-height: map.get($value, "lh");
-        }
-        @if (map.has-key($value, "ls")) {
-          letter-spacing: map.get($value, "ls");
-        }
-        @if (map.has-key($value, "fw")) {
-          font-weight: map.get($value, "fw");
-        }
-      }
-    }
-  }
-}
-
-@mixin generateResponsiveVars($vars) {
-  $breakpoints: var.$breakpoints;
-  $pointList: map.keys($breakpoints);
-
-  @each $key, $map in $vars {
-    $tk: func.recursive($map);
-
-    @if ($key == default) {
-      @each $name, $value in $tk {
-        --#{$name}: #{$value};
-      }
-    } @else if($key in $pointList) {
-      @include mq($key) {
-        @each $name, $value in $tk {
-          --#{$name}: #{$value};
-        }
-      }
-    }
-  }
-}
-
-@mixin generateVars($map, $prefix: null) {
-  $vars: func.recursive($map);
-
-  @each $key, $value in $vars {
-    $identifier: if($prefix == null, "--", "--#{$prefix}-");
-    #{$identifier}#{$key}: #{$value};
-  }
-}
-
-@mixin generateThemeVars($themes) {
-  @each $name, $map in $themes {
-    @if ($name != default) {
-      $vars: func.recursive($map);
-
-      html[data-theme="#{$name}"] {
-        @each $key, $value in $vars {
-          --clr-#{$key}: #{$value};
-        }
-      }
-    }
-  }
-}
-
-@mixin mq-max($key-or-size) {
-  @include mq($key-or-size, "max") {
-    @content;
-  }
-}
-
-@mixin mq-min($key-or-size) {
-  @include mq($key-or-size, "min") {
-    @content;
-  }
-}
+@use "./variables" as *;
+@use "./spacings" as *;
+@use "./functions" as *;
 
 @mixin flex-center() {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-@mixin blind() {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-}
-
-@mixin blur($val: 16px) {
-  backdrop-filter: blur($val);
-  -webkit-backdrop-filter: blur($val);
-}
-
-@mixin pos-center-cover() {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-@mixin pos-center() {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-@mixin line-clamp($line) {
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: $line;
-  -webkit-box-orient: vertical;
-  word-break: keep-all;
-  white-space: normal;
 }
 
 @mixin img-cover() {
@@ -157,53 +20,223 @@
 
 @mixin img-auto-cover($percent: 56.25%) {
   position: relative;
-  overflow: hidden;
   height: 0;
-  padding-bottom: $percent;
+  padding-top: #{$percent};
 
   img {
     @include pos-center();
-    object-fit: cover;
+    @include img-cover();
   }
 }
 
-@mixin hasRadius($val: 24px) {
-  overflow: hidden;
-  border-radius: $val;
+@mixin pos-full() {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
+
+@mixin button($color-type) {
+  color: clr(#{$color-type}-text);
+  background-color: clr(#{$color-type}-main);
+
+  &:hover {
+    background-color: clr(#{$color-type}-hover);
+  }
+  &:focus {
+    background-color: clr(#{$color-type}-focus);
+  }
+
+  &:disabled {
+    background-color: clr(#{$color-type}-disabled);
+  }
+}
+
+@mixin pos-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @mixin backdrop($opacity: 0.45) {
-  @include pos-center();
-  background: rgba(0, 0, 0, $opacity);
+  &::before {
+    content: "";
+    @include overlay($opacity);
+  }
 }
 
-@mixin backdrop-gradient() {
-  @include pos-center();
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 100%);
+@mixin overlay($opacity: 0.45) {
+  @include pos-full();
+  background-color: rgba(0, 0, 0, #{$opacity});
 }
 
-@mixin backgroundControl($size) {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: $size;
+@mixin root-var($map) {
+  @each $key, $value in $map {
+    --#{$key}: #{$value};
+  }
 }
-@mixin grid-columns($default, $breakpoints...) {
-  display: grid;
 
-  @if type-of($default) == "number" {
-    grid-template-columns: repeat($default, 1fr);
-  } @else if type-of($default) == "list" {
-    grid-template-columns: $default;
+@mixin build-family($family) {
+  @each $key, $value in $family {
+    .no-family-#{$key} {
+      font-family: var(--family-#{$key});
+    }
+  }
+}
+
+@mixin root-family($family) {
+  @each $key, $value in $family {
+    --family-#{$key}: #{$value}, sans-serif;
+  }
+}
+
+@mixin line-clamp($lines: 2) {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  word-break: keep-all;
+  white-space: normal;
+}
+
+@mixin build-color($colors, $prefix: "") {
+  @each $key, $value in $colors {
+    $class: ".clr-#{$key}";
+    $var: $key;
+
+    @if (string.length($prefix) > 0) {
+      $class: ".clr-#{$prefix}-#{$key}";
+      $var: "#{$prefix}-#{$key}";
+    }
+
+    #{$class} {
+      color: clr(#{$var});
+    }
+  }
+}
+@mixin build-background($colors, $prefix: "") {
+  @each $key, $value in $colors {
+    $class: ".bg-#{$key}";
+    $var: $key;
+
+    @if (string.length($prefix) > 0) {
+      $class: ".bg-#{$prefix}-#{$key}";
+      $var: "#{$prefix}-#{$key}";
+    }
+
+    #{$class} {
+      background-color: clr(#{$var});
+    }
+  }
+}
+
+@mixin root-locale-families($font-families) {
+  @each $locale, $family in $font-families {
+    html[lang="#{$locale}"] {
+      @if ($locale != $DEFAULT_LOCALE) {
+        @include root-family($family);
+      }
+    }
+  }
+}
+
+@mixin root-typo($typo) {
+  $typo-var: flatten-map($typo);
+
+  @each $key, $value in $typo-var {
+    --#{$key}: #{$value};
+  }
+}
+
+@mixin root-locale-typos($typo, $font-families) {
+  @each $locale, $_ in $font-families {
+    html[lang="#{$locale}"] {
+      @if ($locale != $DEFAULT_LOCALE) {
+        @include root-typo(map.get($typo, $locale));
+      }
+    }
+  }
+}
+
+@mixin build-typo($typo) {
+  @each $type, $data in $typo {
+    @each $key, $value in $data {
+      $name: #{$type}-#{$key};
+
+      .no-#{$name} {
+        font-family: var(--#{$name}-fm);
+        font-size: var(--#{$name}-fs);
+        font-weight: var(--#{$name}-fw);
+        line-height: var(--#{$name}-lh);
+        letter-spacing: var(--#{$name}-ls);
+      }
+    }
+  }
+}
+
+@mixin build-typo-stack($typography) {
+  @each $locale, $typo in $typography {
+    @if ($locale == $DEFAULT_LOCALE) {
+      @include build-typo($typo);
+    } @else {
+      html[lang="#{$locale}"] {
+        @include build-typo($typo);
+      }
+    }
+  }
+}
+
+@mixin mq($breakpoint) {
+  @if (meta.type-of($breakpoint) == "number") {
+    @media (max-width: #{$breakpoint}px) {
+      @content;
+    }
+  } @else if (meta.type-of($breakpoint) == "string") {
+    @if (map.has-key($breakpoints, $breakpoint)) {
+      $point: map.get($breakpoints, $breakpoint);
+      @media (max-width: #{$point}px) {
+        @content;
+      }
+    } @else {
+      @error "wrong breakpoint key: #{$breakpoint}";
+    }
+  } @else {
+    @error "breakpoint type error";
   }
 
-  @each $breakpoint in $breakpoints {
-    $mq: map-get($breakpoint, mq);
-    $columns: map-get($breakpoint, columns);
+  @each $key, $value in $breakpoints {
+  }
+}
 
-    @include mq($mq) {
-      @if type-of($columns) == "number" {
-        grid-template-columns: repeat($columns, 1fr);
-      } @else if type-of($columns) == "list" {
-        grid-template-columns: $columns;
+@mixin color-scheme($name) {
+  @media (prefers-color-scheme: #{$name}) {
+    @content;
+  }
+}
+
+@mixin root-global($globals) {
+  @each $breakpoint, $data in $globals {
+    $var: flatten-map($data);
+
+    @if ($breakpoint == base) {
+      :root {
+        @each $key, $value in $var {
+          --#{$key}: #{$value};
+        }
+      }
+    } @else {
+      @if (map.has-key($breakpoints, $breakpoint)) {
+        @include mq($breakpoint) {
+          :root {
+            @each $key, $value in $var {
+              --#{$key}: #{$value};
+            }
+          }
+        }
       }
     }
   }

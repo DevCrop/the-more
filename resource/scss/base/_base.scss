@@ -1,0 +1,61 @@
+@use "../abstracts" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--clr-text-body);
+  background-color: var(--clr-surface-main);
+  font-size: fluid(14, 16);
+  font-weight: 400;
+  word-break: keep-all;
+  line-height: 1.41;
+  font-family: var(--family-body);
+}
+
+::selection {
+  background: var(--clr-primary-main);
+
+  color: var(--clr-primary-text);
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: var(--clr-text-body);
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: fluid(14, 16);
+  font-family: var(--family-body);
+}
+
+input,
+select,
+textarea {
+  background: none;
+  outline: none;
+  border: none;
+}

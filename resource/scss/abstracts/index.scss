@@ -1,6 +1,7 @@
-@forward "./primitives";
-@forward "./themes";
-@forward "./tokens";
-@forward "./variables";
 @forward "./functions";
 @forward "./mixins";
+@forward "./colors";
+@forward "./global";
+@forward "./variables";
+@forward "./typography";
+@forward "./spacings";

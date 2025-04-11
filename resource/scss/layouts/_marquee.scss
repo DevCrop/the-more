@@ -1,0 +1,23 @@
+@use "../abstracts" as *;
+
+.marquee {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  gap: 1rem;
+  position: relative;
+}
+.marquee-content {
+  display: flex;
+  width: fit-content;
+  flex: auto;
+  flex-direction: row;
+  gap: fluid(12, 24);
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: fluid(240, 320);
+}

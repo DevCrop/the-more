@@ -1,0 +1,7 @@
+@use "en" as en;
+@use "ko" as ko;
+
+$typography: (
+    ko: ko.$typography,
+    en: en.$typography,
+);

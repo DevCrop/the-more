@@ -1,136 +1,259 @@
 @use "sass:map";
 @use "../abstracts" as *;
 
-/* 공통 스크롤바 스타일 */
-::-webkit-scrollbar {
-  width: 8px; /* 세로 스크롤바 너비 */
-  height: 8px; /* 가로 스크롤바 높이 */
+$spacing-var: flatten-map($spacings);
+
+$clr-var: flatten-map($colors, "clr");
+$clr-var--invert: flatten-map($dark-colors, "clr-invert");
+$clr-dark-var: flatten-map($dark-colors, "clr");
+$clr-dark-var--invert: flatten-map($colors, "clr-invert");
+
+$clr-pure: flatten-map($colors);
+$clr-pure--invert: flatten-map($dark-colors);
+
+// ----------------------------------------------------------------------------
+// Spacing & Global Variables
+// ----------------------------------------------------------------------------
+:root {
+  @include root-var($spacing-var);
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--clr-primary-main);
-  border-radius: 6px; /* 둥글게 처리 */
+@include root-global($globals);
+
+// ----------------------------------------------------------------------------
+// Colors
+// ----------------------------------------------------------------------------
+@include color-scheme(light) {
+  :root {
+    @include root-var($clr-var);
+    @include root-var($clr-var--invert);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--clr-secondary-main);
+@include color-scheme(dark) {
+  :root {
+    @include root-var($clr-dark-var);
+    @include root-var($clr-dark-var--invert);
+  }
 }
-
-::-webkit-scrollbar-track {
-  background: #f4f4f4; /* 트랙 배경 색상 */
-  border-radius: 6px; /* 트랙 둥글게 처리 */
-  margin: 4px; /* 트랙 상하/좌우 여백 */
-}
-
-::-webkit-scrollbar-corner {
-  background: #f4f4f4; /* 모서리 색상 */
-}
-
-$root-variables: recursive($tokens);
 
 :root {
-  @include generateVars($root-variables);
-  @include generateVars(map.get($themes, $app-theme), "clr");
-  @include generateResponsiveVars($variables);
+  @include root-var($clr-var);
+  @include root-var($clr-var--invert);
 }
 
-@include generateThemeVars($themes);
+html[data-theme="light"] {
+  @include root-var($clr-var);
+  @include root-var($clr-var--invert);
+}
+html[data-theme="dark"] {
+  @include root-var($clr-dark-var);
+  @include root-var($clr-dark-var--invert);
+}
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@include build-color($clr-pure);
+@include build-color($clr-pure--invert, "invert");
+@include build-background($clr-pure);
+@include build-background($clr-pure--invert, "invert");
+
+// ----------------------------------------------------------------------------
+// Font Family & Typogrpahy
+// ----------------------------------------------------------------------------
+:root {
+  @include root-family(map.get($font-families, $DEFAULT_LOCALE));
+  @include root-typo(map.get($typography, $DEFAULT_LOCALE));
 }
-html.lenis-stopped {
-  overflow: hidden;
-}
-html {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  font-size: 62.5%;
-  &.is-transition {
-    transition: none !important;
+
+@include root-locale-families($font-families);
+@include root-locale-typos($typography, $font-families);
+
+@include build-family(map.get($font-families, $DEFAULT_LOCALE));
+@include build-typo(map.get($typography, $DEFAULT_LOCALE));
+
+// ----------------------------------------------------------------------------
+// Building Spacings
+// ----------------------------------------------------------------------------
+@each $key, $value in map.get($spacings, section) {
+  $class: ".no-section-#{$key}";
+  #{$class} {
+    padding: #{$value} 0;
+  }
+  #{$class}--t {
+    padding-top: #{$value};
+  }
+  #{$class}--b {
+    padding-bottom: #{$value};
   }
 }
 
-html.is-changing .transition-main {
-  transition: opacity 250ms ease-in-out;
-}
-
-html.is-animating .transition-main {
-  opacity: 0;
-}
-
-%body {
-  font-family: var(--fm-body);
-  font-size: var(--fs-body-md);
-  line-height: 1.5;
-  font-weight: 400;
-  color: var(--clr-text-body);
-  word-break: keep-all;
-}
-
-body {
-  @extend %body;
-  background: var(--clr-background-primary);
-  transition: var(--tran-bg);
-}
-
-::selection {
-  background-color: var(--clr-primary-main);
-  color: var(--clr-primary-on);
-}
-
-a {
-  font-family: var(--fm-body);
-  text-decoration: none;
-  color: var(--clr-text-body);
-  display: block;
-}
-
-b {
-  font-weight: var(--fw-bold);
-}
-button {
-  @extend %body;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  table-layout: fixed;
-}
-
-input,
-textarea,
-select,
-form,
-fieldset,
-legend {
-  @extend %body;
-  border: none;
-  &:focus {
-    outline: none;
+@each $key, $value in map.get($spacings, gap) {
+  .no-gap-#{$key} {
+    gap: #{$value};
+  }
+  .no-gap-#{$key}--row {
+    row-gap: #{$value};
+  }
+  .no-gap-#{$key}--col {
+    column-gap: #{$value};
   }
 }
 
-.swiper-button-prev,
-.swiper-button-next {
-  &::after {
-    content: none;
+@each $key, $value in map.get($spacings, pd) {
+  $class: ".no-pd-#{$key}";
+  #{$class} {
+    padding: #{$value};
+  }
+  #{$class}--x {
+    padding: 0 #{$value};
+  }
+  #{$class}--y {
+    padding: #{$value} 0;
+  }
+  #{$class}--l {
+    padding-left: #{$value};
+  }
+  #{$class}--t {
+    padding-top: #{$value};
+  }
+  #{$class}--r {
+    padding-right: #{$value};
+  }
+  #{$class}--b {
+    padding-bottom: #{$value};
   }
 }
 
-img {
-  width: 100%;
-  max-width: 100%;
-  vertical-align: middle;
-  object-fit: cover;
-  display: block;
+@each $key, $value in map.get($spacings, mg) {
+  $class: ".no-mg-#{$key}";
+  #{$class} {
+    margin: #{$value};
+  }
+  #{$class}--x {
+    margin: 0 #{$value};
+  }
+  #{$class}--y {
+    margin: #{$value} 0;
+  }
+  #{$class}--l {
+    margin-left: #{$value};
+  }
+  #{$class}--t {
+    margin-top: #{$value};
+  }
+  #{$class}--r {
+    margin-right: #{$value};
+  }
+  #{$class}--b {
+    margin-bottom: #{$value};
+  }
+}
+
+@each $key, $value in map.get($spacings, radius) {
+  $class: ".no-radius-#{$key}";
+
+  #{$class} {
+    border-radius: #{$value};
+    overflow: hidden;
+  }
+
+  #{$class}--t,
+  #{$class}--b,
+  #{$class}--tr,
+  #{$class}--rt,
+  #{$class}--tl,
+  #{$class}--lt,
+  #{$class}--br,
+  #{$class}--rb,
+  #{$class}--bl,
+  #{$class}--lb {
+    overflow: hidden;
+  }
+
+  #{$class}--t {
+    border-top-right-radius: #{$value};
+    border-top-left-radius: #{$value};
+  }
+
+  #{$class}--b {
+    border-bottom-right-radius: #{$value};
+    border-bottom-left-radius: #{$value};
+  }
+
+  #{$class}--tr,
+  #{$class}--rt {
+    border-top-right-radius: #{$value};
+  }
+
+  #{$class}--tl,
+  #{$class}--lt {
+    border-top-left-radius: #{$value};
+  }
+
+  #{$class}--br,
+  #{$class}--rb {
+    border-bottom-right-radius: #{$value};
+  }
+
+  #{$class}--bl,
+  #{$class}--lb {
+    border-bottom-left-radius: #{$value};
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Container
+// ----------------------------------------------------------------------------
+@each $key, $value in $breakpoints {
+  $max-width: calc(var(--gutter-container) * 2 + #{$value}px);
+
+  .no-container-#{$key} {
+    max-width: #{$max-width};
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter-container);
+    padding-right: var(--gutter-container);
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Grid System
+// ----------------------------------------------------------------------------
+.no-row {
+  --gutter-x: var(--gutter-grid-x);
+  --gutter-y: var(--gutter-grid-y);
+
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--gutter-y));
+  margin-right: calc(-0.5 * var(--gutter-x));
+  margin-left: calc(-0.5 * var(--gutter-x));
+
+  &.col {
+    flex: 1 0 0;
+  }
+
+  @for $i from 1 through 12 {
+    & .no-col-#{$i} {
+      max-width: 100%;
+      width: calc($i / 12 * 100%);
+      flex: 0 0 auto;
+      padding-right: calc(var(--gutter-x) * 0.5);
+      padding-left: calc(var(--gutter-x) * 0.5);
+      margin-top: var(--gutter-y);
+    }
+
+    @each $key, $value in $breakpoints {
+      & .no-col-#{$key}-#{$i} {
+        @include mq($key) {
+          max-width: 100%;
+          width: calc($i / 12 * 100%);
+          flex: 0 0 auto;
+          padding-right: calc(var(--gutter-x) * 0.5);
+          padding-left: calc(var(--gutter-x) * 0.5);
+          margin-top: var(--gutter-y);
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,115 @@
+@use "../functions" as *;
+
+$typography: (
+    display: (
+        xl: (
+            fm: var(--family-display),
+            fs: fluid(64, 256),
+            fw: 700,
+            lh: 0.95,
+            ls: 0,
+        ),
+        lg: (
+            fm: var(--family-display),
+            fs: fluid(56, 188),
+            fw: 700,
+            lh: 1.1,
+            ls: 0,
+        ),
+        md: (
+            fm: var(--family-display),
+            fs: fluid(36, 128),
+            fw: 700,
+            lh: 1.2,
+            ls: 0,
+        ),
+        sm: (
+            fm: var(--family-display),
+            fs: fluid(28, 96),
+            fw: 700,
+            lh: 1.25,
+            ls: 0,
+        ),
+        xs: (
+            fm: var(--family-display),
+            fs: fluid(20, 72),
+            fw: 700,
+            lh: 1.3,
+            ls: 0,
+        ),
+    ),
+    heading: (
+        xl: (
+            fm: var(--family-heading),
+            fs: fluid(16, 64),
+            fw: 600,
+            lh: 1.3,
+            ls: 0,
+        ),
+        lg: (
+            fm: var(--family-heading),
+            fs: fluid(14, 48),
+            fw: 600,
+            lh: 1.35,
+            ls: 0,
+        ),
+        md: (
+            fm: var(--family-heading),
+            fs: fluid(12, 36),
+            fw: 600,
+            lh: 1.4,
+            ls: 0,
+        ),
+        sm: (
+            fm: var(--family-heading),
+            fs: fluid(10, 28),
+            fw: 600,
+            lh: 1.45,
+            ls: 0,
+        ),
+        xs: (
+            fm: var(--family-heading),
+            fs: fluid(9, 24),
+            fw: 600,
+            lh: 1.5,
+            ls: 0,
+        ),
+    ),
+    body: (
+        xl: (
+            fm: var(--family-body),
+            fs: fluid(12, 20),
+            fw: 400,
+            lh: 1.6,
+            ls: 0,
+        ),
+        lg: (
+            fm: var(--family-body),
+            fs: fluid(11, 18),
+            fw: 400,
+            lh: 1.6,
+            ls: 0,
+        ),
+        md: (
+            fm: var(--family-body),
+            fs: fluid(10, 16),
+            fw: 400,
+            lh: 1.6,
+            ls: 0,
+        ),
+        sm: (
+            fm: var(--family-body),
+            fs: fluid(9, 14),
+            fw: 400,
+            lh: 1.55,
+            ls: 0,
+        ),
+        xs: (
+            fm: var(--family-body),
+            fs: fluid(8, 12),
+            fw: 400,
+            lh: 1.5,
+            ls: 0,
+        ),
+    ),
+);

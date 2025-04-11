@@ -1,0 +1,26 @@
+@use "./functions" as *;
+
+$globals: (
+  base: (
+    gutter: (
+      container: 2.4rem,
+      grid-x: fluid(12, 24),
+      grid-y: fluid(24, 48),
+    ),
+    input-height: 5.8rem,
+    header-height: 8rem,
+    tran: (
+      15: 0.15s ease-in-out,
+      30: 0.3s ease-in-out,
+      45: 0.45s ease-in-out,
+    ),
+  ),
+  md: (
+    header: (
+      height: 6.4rem,
+    ),
+    input: (
+      height: 4.8rem,
+    ),
+  ),
+);

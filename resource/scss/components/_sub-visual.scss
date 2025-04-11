@@ -1,0 +1,15 @@
+@use "../abstracts/" as *;
+
+.no-sub-visual {
+  height: fluid(240, 480);
+  background-image: url(/resource/images/common/img_placeholder.png);
+  position: relative;
+  > div {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: fluid(24, 60);
+  }
+  &-txt {
+  }
+}
