@@ -32,6 +32,20 @@
     font-size: var(--heading-xs-fs);
   }
 }
+.--text-line {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50%;
+    background: var(--clr-primary-disabled);
+    z-index: -1;
+  }
+}
 .--carrers {
   > ul {
     display: flex;

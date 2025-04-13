@@ -215,7 +215,7 @@
                         <hgroup>
                             <h2 class=" no-heading-lg --fw-700">
                                 저 또한 중소기업 <br>
-                                대표였습니다.
+                                <span class="--text-line">대표였습니다.</span>
                             </h2>
                             <div class="no-mg-xl--t">
                                 <ul class="no-body-xl --list-text">

@@ -29,12 +29,6 @@
                         </ul>
                     </nav>
 
-
-                    <a href="#" class="no-btn-header">
-                        문의하기
-                        <i class="fa-regular fa-arrow-right-long"></i>
-                    </a>
-
                     <button type="button" class="no-header-btn">
                         <span></span>
                         <span></span>

@@ -3,6 +3,9 @@
 .no-sub-nav {
   height: var(--nav-height);
   border-bottom: 1px solid var(--clr-border-main);
+  position: sticky;
+  top: var(--header-height);
+  background: var(--clr-surface-main);
   > div {
     height: 100%;
     > div {

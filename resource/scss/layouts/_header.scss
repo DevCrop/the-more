@@ -35,7 +35,7 @@
       background: var(--clr-primary-main);
     }
     .no-header-menu {
-      max-width: 108rem;
+      max-width: fluid(600, 1080);
     }
     .no-btn-header {
       border: 1px solid var(--clr-primary-outline);

@@ -187,10 +187,17 @@
       display: grid;
       grid-template-columns: 5fr 7fr;
       gap: var(--gap-2xl);
+      @include mq(sm) {
+        grid-template-columns: 1fr;
+      }
       .img {
         @include img-auto-cover(122.5%);
         position: sticky;
         top: calc(var(--header-height) + fluid(16, 20));
+        @include mq(sm) {
+          position: relative;
+          top: inherit;
+        }
       }
       & + div {
         > ul {
