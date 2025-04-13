@@ -8,8 +8,11 @@
 <?php 
     include_once $STATIC_ROOT.'/inc/layouts/header.php';
     include_once $STATIC_ROOT.'/inc/shared/sub.visual.php';
+    include_once $STATIC_ROOT.'/inc/shared/sub.nav.php';
 ?>
 
+
+<!-- contents -->
 <main class="no-sub">
     <section class="no-sub-intro">
         <div class="no-section-lg">
@@ -17,7 +20,7 @@
                 <div class="--section-title-wrap ">
                     <hgroup>
                         <h2 class="no-heading-lg --fw-700">
-                            회사 소개
+                            정부 지원금이란?
                         </h2>
                     </hgroup>
                 </div>
@@ -27,20 +30,17 @@
                     </div>
                     <div class="txt">
                         <h3 class="no-heading-md">
-                            정책자금, 복잡하게 고민하지 마세요.
+                            당신에 비즈니에 맞는<br>
+                            최적의 지원금을 찾아드립니다.
                         </h3>
                         <div class="no-mg-lg--t">
                             <ul class="no-body-xl --list-text">
                                 <li class="--fw-600 clr-text-heading">
-                                    A&Z 파트너스는 정부 정책자금 조달에 특화된 경영 컨설팅 전문 기업입니다.
+                                    특정 목표를 달성하거나 사회적 불균형을 조정하기 위한 <br>다양한 정책들의
+                                    실행을 돕기 위한 재정적 지원입니다.
                                 </li>
                                 <li>
-                                    우리는 다양한 정부 지원사업을 분석하고, 업의 업종과 성장단계에 맞는
-                                    맞춤형 자금을 신속하게 연결해드립니다.
-                                </li>
-                                <li>
-                                    정책자금 신청부터 사업계획서 작성, 사후관리까지 전 과정에 걸쳐
-                                    실질적인 도움을 드리는 것을 목표로 합니다.
+                                    그러나 복잡한 절차와 까다로운 요구 사항 때문에 개인이나 <br>기업이 지원금을 효과적으로 활용하는데 어려움이 있습니다.
                                 </li>
                             </ul>
                         </div>
@@ -55,7 +55,7 @@
                 <div class="--section-title-wrap ">
                     <hgroup>
                         <h2 class="no-heading-lg --fw-700">
-                            우리가 하는 일
+                            정부 지원금 종류
                         </h2>
                     </hgroup>
 
@@ -69,9 +69,10 @@
                                 </lord-icon>
                             </div>
                             <div class="txt no-mg-lg--t">
-                                <h4 class="no-heading-xs">정책자금 컨설팅</h4>
+                                <h4 class="no-heading-xs">고용 지원금</h4>
                                 <p class="no-body-xl no-mg-sm--t">
-                                    기업별 상황을 진단하고, 가장 적합한 정책자금을 전략적으로 매칭
+                                    일정 조건을 만족하는 기업이나 개인에 고용을 유지하거나 새로운 고용을 창출 할 때 제공하는 재정 지원입니다. 이는 고용의 안정과 확대를 목적으로
+                                    합니다.
                                 </p>
                             </div>
                         </li>
@@ -82,9 +83,10 @@
                                 </lord-icon>
                             </div>
                             <div class="txt no-mg-lg--t">
-                                <h4 class="no-heading-xs">지원사업 분석 및 신청 대행</h4>
+                                <h4 class="no-heading-xs">R&D 지원사업</h4>
                                 <p class="no-body-xl no-mg-sm--t">
-                                    복잡한 공고 분석부터 사업계획서 작성, 제출까지 전 과정 지원
+                                    정부나 다른 기관의 연구 및 개발 활동 촉진을 위해 제공하는 재정적, 기술적 지원 프로그램입니다. 혁신과 기술 발전을 촉진하여 국가 경쟁력을 강화하는데
+                                    기여합니다.
                                 </p>
                             </div>
                         </li>
@@ -95,9 +97,10 @@
                                 </lord-icon>
                             </div>
                             <div class="txt no-mg-lg--t">
-                                <h4 class="no-heading-xs">사후관리 및 단계별 컨설팅</h4>
+                                <h4 class="no-heading-xs">예비 창업 패키지</h4>
                                 <p class="no-body-xl no-mg-sm--t">
-                                    단순한 자금 확보를 넘어, 자금 활용과 후속 성장까지 함께하는 파트너
+                                    창업을 준비하는 예비 창업자들에게 필요한 교육, 멘토링, 자금 지원 등 다양한 서비스를 제공하는 프로그램입니다. 창업 단계에서 실패 위험을 줄이고
+                                    성공적인 사업 기반을 마련하기 위함입니다.
                                 </p>
                             </div>
                         </li>
@@ -106,45 +109,39 @@
             </div>
         </div>
     </section>
-    <section class="no-sub-why">
+    <section class="no-sub-nece">
         <div class="no-section-lg">
             <div class="no-container-xl">
+                <div class="--section-title-wrap ">
+                    <hgroup>
+                        <h2 class="no-heading-lg --fw-700">
+                            정부 지원금의 필요성
+                        </h2>
+                        <p class="no-body-xl">
+                            저희 A&Z 파트너스의 서비스를 통해 필요한 정보를 얻고, 신청 과정에서 필요한 도움을 받을 수 있습니다. 여러분의 성공적인 정부 지원금 신청을 위해 항상
+                            최선을
+                            다하겠습니다.
+                        </p>
+                    </hgroup>
+                </div>
                 <div class="--cnt">
-                    <div class="--section-title-wrap ">
-                        <hgroup>
-                            <h2 class="no-heading-lg --fw-700">
-                                WHY A&Z PARTNERS
-                            </h2>
-                            <p class="no-body-xl">
-                                복잡한 정부 지원사업을 분석하고, <br>
-                                기업의 성장 단계에 맞는 자금을 정확하고 신속하게 연결합니다.
-                            </p>
-                        </hgroup>
+
+                    <div class="img no-radius-xs">
+                        <img src="/resource/images/common/img_placeholder.png" alt="">
                     </div>
-                    <ul>
-                        <li>
-                            <span class="--num__outline--white --num">01</span>
-                            <p>수백 건 이상의 실제 컨설팅 경험</p>
-                        </li>
-                        <li>
-                            <span class="--num__outline--white --num">02</span>
-                            <p>높은 승인율을 바탕으로 검증된 실력</p>
-                        </li>
-                        <li>
-                            <span class="--num__outline--white --num">03</span>
-                            <p>업종별 전문 컨설턴트 배치</p>
-                        </li>
-                        <li>
-                            <span class="--num__outline--white --num">04</span>
-                            <p>불필요한 절차 없이, 정확하고 빠르게</p>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
+
+    <?php include_once $STATIC_ROOT . '/inc/layouts/process.php'; ?>
+
+
     <?php include_once $STATIC_ROOT.'/inc/layouts/banner.php'; ?>
+
 </main>
+
+
 
 
 
@@ -154,4 +151,4 @@
 
 <?php
     include_once $STATIC_ROOT.'/inc/layouts/footer.php';
-?>
+    ?>

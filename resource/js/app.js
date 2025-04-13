@@ -6,7 +6,30 @@ document.addEventListener("DOMContentLoaded", () => {
   marqueeInit();
   tableScrollState();
   dropdown();
+  categorySwiper();
+  initLenis();
+  subNavSwiper();
 });
+
+const initLenis = () => {
+  const lenis = new Lenis({
+    autoRaf: true,
+  });
+
+  lenis.on("scroll", (e) => {});
+
+  function raf(time) {
+    lenis.raf(time);
+    //localhost:8080/pages/process/process.php
+    http: requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  const topBtn = document.querySelector(".no-top-btn button");
+  topBtn.addEventListener("click", () => {
+    lenis.scrollTo(0);
+  });
+};
 
 const headerFull = () => {
   const header = document.getElementById("no-header-full");
@@ -194,6 +217,22 @@ const mainYoutubeSwiper = () => {
     },
   });
 };
+const subNavSwiper = () => {
+  const subNav = document.querySelector(".no-sub-nav-swiper");
+  if (!subNav) return;
+  const swiper = new Swiper(subNav, {
+    slidesPerView: "auto",
+    spaceBetween: 24,
+  });
+};
+const categorySwiper = () => {
+  const category = document.querySelector(".no-category-swiper");
+  if (!category) return;
+  const swiper = new Swiper(category, {
+    slidesPerView: "auto",
+    spaceBetween: 24,
+  });
+};
 
 const marqueeInit = () => {
   const marquees = document.querySelectorAll('[wb-data="marquee"]');
@@ -257,6 +296,9 @@ const marqueeInit = () => {
 
 const tableScrollState = () => {
   const scrollContainer = document.querySelector(".--listing-table");
+  if (!scrollContainer) {
+    return;
+  }
   const thead = scrollContainer.querySelector("thead");
 
   if (scrollContainer && thead) {

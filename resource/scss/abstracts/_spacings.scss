@@ -3,7 +3,7 @@
 $spacings: (
   section: (
     xl: fluid(82, 164),
-    lg: fluid(64, 128),
+    lg: fluid(64, 120),
     md: fluid(40, 80),
     sm: fluid(32, 64),
     xs: fluid(24, 48),
@@ -12,15 +12,15 @@ $spacings: (
     xl: fluid(24, 48),
     lg: fluid(16, 32),
     md: fluid(12, 24),
-    xs: fluid(8, 16),
-    sm: fluid(4, 8),
+    sm: fluid(8, 16),
+    xs: fluid(4, 8),
   ),
   pd: (
     xl: fluid(24, 48),
     lg: fluid(16, 32),
     md: fluid(12, 24),
-    xs: fluid(8, 16),
-    sm: fluid(4, 8),
+    sm: fluid(8, 16),
+    xs: fluid(4, 8),
   ),
   mg: (
     3xl: fluid(48, 80),
@@ -28,8 +28,8 @@ $spacings: (
     xl: fluid(24, 48),
     lg: fluid(16, 32),
     md: fluid(12, 24),
-    xs: fluid(8, 16),
-    sm: fluid(4, 8),
+    sm: fluid(8, 16),
+    xs: fluid(4, 8),
   ),
   gap: (
     3xl: fluid(48, 80),
@@ -37,7 +37,7 @@ $spacings: (
     xl: fluid(24, 48),
     lg: fluid(16, 32),
     md: fluid(12, 24),
-    xs: fluid(8, 16),
-    sm: fluid(4, 8),
+    sm: fluid(8, 16),
+    xs: fluid(4, 8),
   ),
 );

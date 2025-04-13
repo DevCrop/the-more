@@ -78,6 +78,39 @@
     </footer>
 </div>
 
+<aside class="no-top-btn active">
+    <ul>
+        <li>
+            <a href="/pages/cs/parking.php">
+                <img src="<?=IMG_PATH?>/icon/aside_insta.png" alt="">
+            </a>
+
+        </li>
+        <li>
+            <a href="/pages/cs/parking.php">
+                <img src="<?=IMG_PATH?>/icon/aside_blog.png" alt="">
+            </a>
+
+        </li>
+        <li>
+            <a href="/pages/cs/parking.php">
+                <img src="<?=IMG_PATH?>/icon/aside_contact.png" alt="">
+            </a>
+
+        </li>
+        <li>
+            <a href="/pages/cs/parking.php">
+                <img src="<?=IMG_PATH?>/icon/aside_location.png" alt="">
+            </a>
+        </li>
+    </ul>
+
+    <button type="button" class="active">
+        <div class="arrow">
+            <i class="fa-regular fa-arrow-up-long" aria-hidden="true"></i>
+        </div>
+    </button>
+</aside>
 
 </body>
 

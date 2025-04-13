@@ -1,6 +1,20 @@
 @use "../abstracts/" as *;
 
 .no-sub {
+  .no-main-case {
+    background: none;
+    .--cnt {
+      > ul {
+        > li {
+          border: 2px solid var(--clr-border-main);
+          &:hover {
+            border: 2px solid var(--clr-primary-outline);
+          }
+        }
+      }
+    }
+  }
+
   &-intro {
     .--cnt {
       display: grid;
@@ -88,6 +102,108 @@
         height: 100%;
         display: flex;
         align-items: center;
+      }
+    }
+  }
+  &-inquiry {
+    .no-form-action {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      @include mq(md) {
+        justify-content: inherit;
+      }
+
+      button {
+        width: auto;
+        width: 18rem;
+        @include mq(sm) {
+          width: 100%;
+        }
+      }
+    }
+    .no-form-captcha {
+    }
+  }
+  &-youtube {
+    .--cnt {
+      > ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: var(--gap-md);
+        row-gap: var(--gap-xl);
+        @include mq(md) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include mq(sm) {
+          grid-template-columns: 1fr;
+        }
+        > li {
+        }
+        a {
+          &:hover {
+            figure {
+              border: 2px solid var(--clr-primary-outline);
+            }
+            h4 {
+              color: var(--clr-primary-main);
+            }
+          }
+          figure {
+            @include img-auto-cover(56.25%);
+            border: 2px solid transparent;
+            transition: var(--tran-45);
+          }
+          .txt {
+            h4 {
+              @include line-clamp(2);
+              transition: var(--tran-45);
+            }
+          }
+        }
+      }
+    }
+  }
+  &-client {
+    .--cnt {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--gap-md);
+        li {
+          border-radius: fluid(4, 8);
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          img {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  &-nece {
+  }
+  &-ceo {
+    article {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: var(--gap-2xl);
+      .img {
+        @include img-auto-cover(122.5%);
+        position: sticky;
+        top: calc(var(--header-height) + fluid(16, 20));
+      }
+      & + div {
+        > ul {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--gap-2xl);
+          > li {
+          }
+        }
+      }
+      .--section-title-wrap {
+        align-items: inherit;
+        flex-direction: column;
       }
     }
   }

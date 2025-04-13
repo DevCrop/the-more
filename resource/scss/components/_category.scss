@@ -1,0 +1,28 @@
+@use "../abstracts/" as *;
+
+.no-category {
+  &-swiper {
+    > ul {
+      > li {
+        width: auto;
+        a {
+          background: var(--clr-gray-main);
+          color: var(--clr-text-desc);
+          font-weight: 400;
+          padding: fluid(8, 12) fluid(14, 18);
+          border-radius: 3rem;
+          display: block;
+          transition: var(--tran-45);
+          &:hover {
+            background: var(--clr-primary-hover);
+            color: var(--clr-primary-text);
+          }
+          &.active {
+            background: var(--clr-primary-focus);
+            color: var(--clr-primary-text);
+          }
+        }
+      }
+    }
+  }
+}

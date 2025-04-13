@@ -8,8 +8,11 @@
 <?php 
     include_once $STATIC_ROOT.'/inc/layouts/header.php';
     include_once $STATIC_ROOT.'/inc/shared/sub.visual.php';
+    include_once $STATIC_ROOT.'/inc/shared/sub.nav.php';
 ?>
 
+
+<!-- contents -->
 <main class="no-sub">
     <section class="no-sub-intro">
         <div class="no-section-lg">
@@ -17,7 +20,7 @@
                 <div class="--section-title-wrap ">
                     <hgroup>
                         <h2 class="no-heading-lg --fw-700">
-                            회사 소개
+                            정책자금이란?
                         </h2>
                     </hgroup>
                 </div>
@@ -27,20 +30,15 @@
                     </div>
                     <div class="txt">
                         <h3 class="no-heading-md">
-                            정책자금, 복잡하게 고민하지 마세요.
+                            당신의 사업에 든든한 지원이 되어드리겠습니다.
                         </h3>
                         <div class="no-mg-lg--t">
                             <ul class="no-body-xl --list-text">
                                 <li class="--fw-600 clr-text-heading">
-                                    A&Z 파트너스는 정부 정책자금 조달에 특화된 경영 컨설팅 전문 기업입니다.
+                                    정부의 재원으로 담보력이 부족해 자금 조달이 어려운 중소기업이나 개인을 위해
                                 </li>
                                 <li>
-                                    우리는 다양한 정부 지원사업을 분석하고, 업의 업종과 성장단계에 맞는
-                                    맞춤형 자금을 신속하게 연결해드립니다.
-                                </li>
-                                <li>
-                                    정책자금 신청부터 사업계획서 작성, 사후관리까지 전 과정에 걸쳐
-                                    실질적인 도움을 드리는 것을 목표로 합니다.
+                                    고용 창출 및 기업 성장을 위해 은행이나 민간 금융기관을 통하여 지원하는 자금을 말합니다.
                                 </li>
                             </ul>
                         </div>
@@ -55,7 +53,7 @@
                 <div class="--section-title-wrap ">
                     <hgroup>
                         <h2 class="no-heading-lg --fw-700">
-                            우리가 하는 일
+                            정책 자금 종류
                         </h2>
                     </hgroup>
 
@@ -69,9 +67,9 @@
                                 </lord-icon>
                             </div>
                             <div class="txt no-mg-lg--t">
-                                <h4 class="no-heading-xs">정책자금 컨설팅</h4>
-                                <p class="no-body-xl no-mg-sm--t">
-                                    기업별 상황을 진단하고, 가장 적합한 정책자금을 전략적으로 매칭
+                                <h4 class="no-heading-xs">창업 자금</h4>
+                                <p class="no-body-xl no-mg-sm--t">사업을 시작할 때 필요한 초기 비용을 위한 자금을 의미합니다. 사업 초 설비 구입, 임차료, 인력
+                                    고용 등의 비용 지원을 위해 사용합니다.
                                 </p>
                             </div>
                         </li>
@@ -82,9 +80,9 @@
                                 </lord-icon>
                             </div>
                             <div class="txt no-mg-lg--t">
-                                <h4 class="no-heading-xs">지원사업 분석 및 신청 대행</h4>
+                                <h4 class="no-heading-xs">운전 자금</h4>
                                 <p class="no-body-xl no-mg-sm--t">
-                                    복잡한 공고 분석부터 사업계획서 작성, 제출까지 전 과정 지원
+                                    기업이 일상적인 영업활동을 유지하며 발생하는 임금, 재료비, 임대료 등의 단기적 경비를 지불하기 위해 필요한, 단기적인 운영 비용 자금을 말합니다.
                                 </p>
                             </div>
                         </li>
@@ -95,9 +93,10 @@
                                 </lord-icon>
                             </div>
                             <div class="txt no-mg-lg--t">
-                                <h4 class="no-heading-xs">사후관리 및 단계별 컨설팅</h4>
+                                <h4 class="no-heading-xs">시설 자금</h4>
                                 <p class="no-body-xl no-mg-sm--t">
-                                    단순한 자금 확보를 넘어, 자금 활용과 후속 성장까지 함께하는 파트너
+                                    기업이 장기적인 투자, 예를 들어 기계 설비 구입, 건물 건설 또는 확장 등의 목적으로, 기업의 지속적 성장과 확장 지원을 위한 재무적 지원을
+                                    의미합니다.
                                 </p>
                             </div>
                         </li>
@@ -106,45 +105,38 @@
             </div>
         </div>
     </section>
-    <section class="no-sub-why">
+    <section class="no-sub-nece">
         <div class="no-section-lg">
             <div class="no-container-xl">
+                <div class="--section-title-wrap ">
+                    <hgroup>
+                        <h2 class="no-heading-lg --fw-700">
+                            일반 대출과 정책 자금의 차이점
+                        </h2>
+                        <p class="no-body-xl">
+                            은행이나 금융권에서 대출받는 것보다 한도가 높고 긴 상환기관을 보장하기에,
+                            정책 자금 확보를 통한 사업 자금 마련은 기업 운영을 위한 가장 좋은 방법입니다.
+                        </p>
+                    </hgroup>
+                </div>
                 <div class="--cnt">
-                    <div class="--section-title-wrap ">
-                        <hgroup>
-                            <h2 class="no-heading-lg --fw-700">
-                                WHY A&Z PARTNERS
-                            </h2>
-                            <p class="no-body-xl">
-                                복잡한 정부 지원사업을 분석하고, <br>
-                                기업의 성장 단계에 맞는 자금을 정확하고 신속하게 연결합니다.
-                            </p>
-                        </hgroup>
+
+                    <div class="img no-radius-xs">
+                        <img src="/resource/images/common/img_placeholder.png" alt="">
                     </div>
-                    <ul>
-                        <li>
-                            <span class="--num__outline--white --num">01</span>
-                            <p>수백 건 이상의 실제 컨설팅 경험</p>
-                        </li>
-                        <li>
-                            <span class="--num__outline--white --num">02</span>
-                            <p>높은 승인율을 바탕으로 검증된 실력</p>
-                        </li>
-                        <li>
-                            <span class="--num__outline--white --num">03</span>
-                            <p>업종별 전문 컨설턴트 배치</p>
-                        </li>
-                        <li>
-                            <span class="--num__outline--white --num">04</span>
-                            <p>불필요한 절차 없이, 정확하고 빠르게</p>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
+
+    <?php include_once $STATIC_ROOT . '/inc/layouts/process.php'; ?>
+
+
     <?php include_once $STATIC_ROOT.'/inc/layouts/banner.php'; ?>
+
 </main>
+
+
 
 
 
@@ -154,4 +146,4 @@
 
 <?php
     include_once $STATIC_ROOT.'/inc/layouts/footer.php';
-?>
+    ?>

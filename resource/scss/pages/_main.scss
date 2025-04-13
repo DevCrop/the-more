@@ -292,10 +292,16 @@
       .swiper-button-next {
         transform: translateX(50%);
         right: 0;
+        @include mq(md) {
+          display: none;
+        }
       }
       .swiper-button-prev {
         transform: translateX(-50%);
         left: 0;
+        @include mq(md) {
+          display: none;
+        }
       }
       .swiper-pagination {
         position: static;
@@ -370,7 +376,8 @@
           }
         }
         &.info {
-          padding: 0 fluid(48, 188) 0 fluid(64, 300);
+          padding: 0 fluid(48, 188) 0 fluid(64, 188);
+          background-image: url(/resource/images/main/main_map_bg.png);
           @include mq(lg) {
             padding: 0;
           }

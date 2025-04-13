@@ -17,6 +17,11 @@ html {
   font-size: 62.5%;
 }
 
+br {
+  @include mq(md) {
+    display: none;
+  }
+}
 body {
   color: var(--clr-text-body);
   background-color: var(--clr-surface-main);
