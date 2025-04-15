@@ -1,0 +1,10 @@
+@use "../abstracts" as *;
+
+.no-board-view {
+  &-top {
+  }
+  &-bottom {
+    border-top: 1px solid var(--clr-border-main);
+    border-bottom: 1px solid var(--clr-border-main);
+  }
+}

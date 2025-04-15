@@ -27,6 +27,9 @@ textarea {
       grid-template-columns: 1fr;
     }
   }
+  &-text {
+    height: fluid(160, 300);
+  }
   &-item {
     display: flex;
     flex-direction: column;
@@ -88,6 +91,8 @@ textarea {
       width: 12rem;
       height: var(--input-height);
       border-radius: 0.6rem;
+      object-fit: contain;
+      background: var(--clr-primary-main);
     }
   }
   &-action {
@@ -97,6 +102,10 @@ textarea {
       color: var(--clr-primary-text);
       height: var(--input-height);
       border-radius: 0.6rem;
+      transition: var(--tran-15);
+      &:hover {
+        background: var(--clr-primary-hover);
+      }
     }
   }
 }
@@ -127,5 +136,9 @@ textarea {
     background: #f9fafc;
     gap: 1rem;
     height: var(--input-height);
+    &:hover {
+      background: var(--clr-primary-main);
+      color: var(--clr-base-white);
+    }
   }
 }

@@ -9,10 +9,9 @@ $CUR_PAGE_INDEX		= $MENU->getCurPageIndex();
 ?>
 
 <!DOCTYPE html>
-<html lang="<?=$LOCALE?>">
+<html lang="<?=$LOCALE?>" data-theme="dark">
 
 <head>
-
 
     <?php
 	include_once $STATIC_ROOT.'/inc/inc.titleMeta.php';

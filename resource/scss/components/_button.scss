@@ -4,6 +4,7 @@
   @include flex-center();
   border-radius: 0.6rem;
   padding: fluid(8, 12) fluid(16, 24);
+  transition: var(--tran-15);
 }
 .no-btn-sm {
   padding: fluid(6, 8) fluid(12, 16);
@@ -13,6 +14,15 @@
 }
 .no-btn-lg {
   padding: fluid(12, 16) fluid(24, 32);
+}
+
+.no-btn-prev {
+  @extend %btn;
+  @include button(primary);
+  display: inline-flex;
+  &-wrap {
+    @include flex-center();
+  }
 }
 
 .no-btn-primary {
@@ -40,14 +50,18 @@
   width: fluid(30, 48);
   height: fluid(30, 48);
   border-radius: 4.8rem;
-
   font-size: fluid(14, 20);
+  transition: var(--tran-15);
   &::after {
     display: none;
   }
   &__white {
     background: var(--clr-base-white);
     color: var(--clr-primary-main);
+    &:hover {
+      background: var(--clr-primary-main);
+      color: var(--clr-base-white);
+    }
   }
   &__primary {
     background: var(--clr-primary-main);
@@ -55,61 +69,38 @@
   }
 }
 
-.no-btn-arrow {
-  &__white {
-    a {
-      color: var(--clr-base-white);
-      div {
-        background: var(--clr-base-white);
-        color: var(--clr-primary-main);
-      }
-    }
-  }
-
-  &__primary {
-    a {
-      color: var(--clr-primary-main);
-      div {
-        background: var(--clr-primary-main);
-        color: var(--clr-base-white);
-      }
-    }
-  }
-
-  &__black {
-    a {
-      border: 1px solid var(--clr-text-strong);
-      color: var(--clr-text-strong);
-
-      div {
-        background: var(--clr-text-strong);
-        color: var(--clr-base-white);
-      }
-    }
-  }
-
+.no-btn-outline {
+  font-family: "Archivo", sans-serif;
+  display: inline-flex;
+  border-radius: 5rem;
   a {
     @include flex-center();
     display: inline-flex;
-    border-radius: 3rem;
-    gap: fluid(5, 10);
     font-size: fluid(15, 18);
-    line-height: 1;
     transition: var(--tran-45);
-    div {
-      width: fluid(24, 40);
-      height: fluid(24, 40);
-      border-radius: 3rem;
-      @include flex-center();
-
-      i {
-        font-size: 1rem;
+    padding: fluid(8, 16) fluid(16, 24);
+    &:hover {
+      div {
+        transform: scale(1);
+        margin-right: fluid(8, 16);
       }
     }
-
-    &:hover {
-      opacity: 0.85;
+    div {
+      width: fluid(16, 30);
+      height: fluid(16, 30);
+      border-radius: 3rem;
+      transition: var(--tran-45);
+      @include flex-center();
+      background: var(--clr-base-white);
+      transform: scale(0.2);
+      i {
+        font-size: fluid(12, 15);
+        color: var(--clr-text-heading-invert);
+      }
     }
+  }
+  &__white {
+    border: 1px solid var(--clr-border-main);
   }
 }
 
@@ -133,7 +124,12 @@
   flex-direction: column;
   align-items: flex-end;
   gap: var(--gap-md);
-
+  &.is_mathed {
+    button {
+      background: var(--clr-base-white);
+      color: var(--clr-primary-main);
+    }
+  }
   &.active {
     button {
       opacity: 1;

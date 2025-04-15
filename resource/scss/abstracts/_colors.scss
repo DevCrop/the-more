@@ -3,27 +3,13 @@
 //----------------------------------------
 // Primitives
 //----------------------------------------
-$clr-primary-50: #e6e8f2;
-$clr-primary-100: #c1c6df;
-$clr-primary-200: #99a1ca;
-$clr-primary-300: #737db5;
-$clr-primary-400: #5661a6;
-$clr-primary-500: #3a4797;
-$clr-primary-600: #343f8e;
-$clr-primary-700: #2b3683;
-$clr-primary-800: #242c77;
-$clr-primary-900: #171c61;
+// Primary Blue Tones
+$clr-primary-900: #183b4e; // Deep Blue
+$clr-primary-700: #27548b; // Mid Blue
 
-$clr-secondary-50: #d4f6f2;
-$clr-secondary-100: #92e9dc;
-$clr-secondary-200: #00dac4;
-$clr-secondary-300: #00c7ab;
-$clr-secondary-400: #00b798;
-$clr-secondary-500: #00a885;
-$clr-secondary-600: #009a77;
-$clr-secondary-700: #008966;
-$clr-secondary-800: #007957;
-$clr-secondary-900: #005b38;
+// Accent / Gold Tone
+$clr-accent-500: #dca854; // Gold
+$clr-accent-100: #f5eedc; // Gold
 
 $clr-base-white: #fff;
 $clr-base-black: #000;
@@ -49,21 +35,12 @@ $colors: (
     black: $clr-base-black,
   ),
   primary: (
-    main: $clr-primary-900,
-    hover: $clr-primary-500,
-    focus: $clr-primary-700,
-    text: $clr-base-white,
-    outline: $clr-primary-900,
-    disabled: $clr-primary-100,
-    disabled-text: $clr-primary-300,
+    main: $clr-primary-700,
+    dark: $clr-primary-900,
   ),
-  secondary: (
-    main: $clr-secondary-300,
-    hover: $clr-secondary-400,
-    focus: $clr-secondary-400,
-    text: $clr-base-white,
-    outline: $clr-secondary-300,
-    disabled: $clr-gray-600,
+  accent: (
+    main: $clr-accent-500,
+    light: $clr-accent-100,
   ),
   gray: (
     main: $clr-gray-300,
@@ -104,11 +81,12 @@ $colors: (
   border: (
     main: $clr-gray-300,
     light: $clr-gray-50,
+    dark: $clr-gray-800,
   ),
-  input: (
+  input-shadow: (
     main: 0px 0px 3px 0px rgba(23, 28, 97, 0.24),
-    hover: 0px 0px 3px 0px rgba(23, 28, 97, 0.24),
-    focus: 0px 0px 3px 0px rgba(23, 28, 97, 0.48),
+    hover: 0px 0px 3px 0px rgba(23, 28, 97, 1),
+    focus: 0px 0px 3px 0px rgba(23, 28, 97, 1),
   ),
 );
 
@@ -121,20 +99,12 @@ $dark-colors: (
     black: $clr-base-black,
   ),
   primary: (
-    main: $clr-primary-200,
-    hover: $clr-primary-300,
-    focus: $clr-primary-300,
-    text: $clr-gray-950,
-    outline: $clr-primary-200,
-    disabled: $clr-gray-600,
+    main: $clr-primary-700,
+    dark: $clr-primary-900,
   ),
-  secondary: (
-    main: $clr-secondary-200,
-    hover: $clr-secondary-300,
-    focus: $clr-secondary-300,
-    text: $clr-gray-950,
-    outline: $clr-secondary-200,
-    disabled: $clr-gray-600,
+  accent: (
+    main: $clr-accent-500,
+    light: $clr-accent-100,
   ),
   gray: (
     main: $clr-gray-600,
@@ -168,8 +138,19 @@ $dark-colors: (
   text: (
     headline: $clr-base-white,
     heading: $clr-gray-50,
+    heading-invert: $clr-gray-950,
     body: $clr-gray-50,
     label: $clr-gray-100,
     desc: $clr-gray-300,
+  ),
+  border: (
+    main: $clr-gray-300,
+    light: $clr-gray-50,
+    dark: $clr-gray-800,
+  ),
+  input-shadow: (
+    main: 0px 0px 3px 0px rgba(23, 28, 97, 0.24),
+    hover: 0px 0px 3px 0px rgba(23, 28, 97, 1),
+    focus: 0px 0px 3px 0px rgba(23, 28, 97, 1),
   ),
 );

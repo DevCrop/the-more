@@ -6,59 +6,59 @@ $typography: (
       fm: var(--family-display),
       fs: fluid(82, 288),
       fw: 700,
-      lh: 0.95,
+      lh: 1.08,
+      ls: 0,
+    ),
+    //CREATORS-TITLE && MAIN-CONTACT-TITLE
+    lg:
+      (
+        fm: var(--family-display),
+        fs: fluid(56, 188),
+        fw: 700,
+        lh: 1.08,
+        ls: 0,
+      ),
+    //VISUAL-TITLE && SUB-VISUAL-TITLE
+    md:
+      (
+        fm: var(--family-display),
+        fs: fluid(36, 128),
+        fw: 700,
+        lh: 1.08,
+        ls: 0,
+      ),
+    //SECTION-TITLE
+    sm:
+      (
+        fm: var(--family-display),
+        fs: fluid(28, 96),
+        fw: 700,
+        lh: 1.08,
+        ls: 0,
+      ),
+    xs: (
+      fm: var(--family-display),
+      fs: fluid(32, 72),
+      fw: 700,
+      lh: 1.08,
+      ls: 0,
+    ),
+  ),
+  heading: (
+    xl: (
+      fm: var(--family-heading),
+      fs: fluid(28, 64),
+      fw: 600,
+      lh: 1.3,
       ls: 0,
     ),
     lg: (
-      fm: var(--family-display),
-      fs: fluid(56, 188),
-      fw: 700,
-      lh: 1.1,
+      fm: var(--family-heading),
+      fs: fluid(24, 48),
+      fw: 600,
+      lh: 1.35,
       ls: 0,
     ),
-    md: (
-      fm: var(--family-display),
-      fs: fluid(36, 128),
-      fw: 700,
-      lh: 1.2,
-      ls: 0,
-    ),
-    sm: (
-      fm: var(--family-display),
-      fs: fluid(28, 96),
-      fw: 700,
-      lh: 1.25,
-      ls: 0,
-    ),
-    //비쥬얼 텍스트
-    xs:
-      (
-        fm: var(--family-display),
-        fs: fluid(32, 72),
-        fw: 700,
-        lh: 1.3,
-        ls: 0,
-      ),
-  ),
-  heading: (
-    //섹션 텍스트
-    xl:
-      (
-        fm: var(--family-heading),
-        fs: fluid(28, 64),
-        fw: 600,
-        lh: 1.3,
-        ls: 0,
-      ),
-    //섹션 컨텐츠 텍스트
-    lg:
-      (
-        fm: var(--family-heading),
-        fs: fluid(24, 48),
-        fw: 600,
-        lh: 1.35,
-        ls: 0,
-      ),
     md: (
       fm: var(--family-heading),
       fs: fluid(20, 36),
@@ -66,15 +66,13 @@ $typography: (
       lh: 1.4,
       ls: 0,
     ),
-    // 비쥬얼 서브 텍스트
-    sm:
-      (
-        fm: var(--family-heading),
-        fs: fluid(17, 28),
-        fw: 600,
-        lh: 1.45,
-        ls: 0,
-      ),
+    sm: (
+      fm: var(--family-heading),
+      fs: fluid(17, 28),
+      fw: 600,
+      lh: 1.45,
+      ls: 0,
+    ),
     xs: (
       fm: var(--family-heading),
       fs: fluid(16, 24),
@@ -84,15 +82,13 @@ $typography: (
     ),
   ),
   body: (
-    // 섹션 서브 텍스트
-    xl:
-      (
-        fm: var(--family-body),
-        fs: fluid(15, 20),
-        fw: 400,
-        lh: 1.6,
-        ls: 0,
-      ),
+    xl: (
+      fm: var(--family-body),
+      fs: fluid(15, 20),
+      fw: 400,
+      lh: 1.6,
+      ls: 0,
+    ),
     lg: (
       fm: var(--family-body),
       fs: fluid(14, 18),

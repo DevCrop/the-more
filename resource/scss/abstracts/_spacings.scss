@@ -9,6 +9,8 @@ $spacings: (
     xs: fluid(24, 48),
   ),
   radius: (
+    3xl: fluid(48, 80),
+    2xl: fluid(32, 64),
     xl: fluid(24, 48),
     lg: fluid(16, 32),
     md: fluid(12, 24),
@@ -16,6 +18,8 @@ $spacings: (
     xs: fluid(4, 8),
   ),
   pd: (
+    3xl: fluid(48, 80),
+    2xl: fluid(32, 64),
     xl: fluid(24, 48),
     lg: fluid(16, 32),
     md: fluid(12, 24),
