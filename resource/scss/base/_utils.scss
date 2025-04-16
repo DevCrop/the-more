@@ -48,6 +48,45 @@
   font-weight: 900;
 }
 
+.--scroll-down {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1;
+  .scroll {
+    width: 2px;
+    height: fluid(40, 80);
+    background-color: rgba(255, 255, 255, 0.24);
+    position: relative;
+    overflow: hidden;
+
+    .scroll-line {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 50%
+      );
+      background-position: 0 fluid(-40, -80);
+      background-size: 100% 200%;
+      animation: scrolldown 2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
+    }
+  }
+
+  span {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    top: -3rem;
+    text-align: center;
+    width: 15rem;
+    font-family: "Archivo", sans-serif;
+  }
+}
+
 .--card {
   padding: fluid(16, 24) fluid(20, 40);
   border: 1px solid var(--clr-border-main);
@@ -100,14 +139,21 @@
   }
 }
 .--section-title-wrap {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  @include flex-center();
+  flex-direction: column;
+  text-align: center;
   @include mq(lg) {
     flex-direction: column;
     align-items: flex-start;
     gap: fluid(10, 24);
   }
+  p {
+    padding-top: fluid(8, 16);
+    color: var(--clr-text-body);
+  }
+}
+
+.--sub-section-title-wrap {
   p {
     padding-top: fluid(8, 16);
     color: var(--clr-text-body);
@@ -163,7 +209,7 @@
   }
 }
 .--cnt {
-  padding-top: fluid(40, 64);
+  padding-top: fluid(32, 80);
 }
 .--t-center {
   text-align: center;

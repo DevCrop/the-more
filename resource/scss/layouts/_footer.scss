@@ -1,137 +1,85 @@
 @use "../abstracts" as *;
 
-#normal-footer {
-  .no-footer {
-    width: 100%;
-    background: var(--clr-primary-main);
-    padding: fluid(24, 36) 0;
-    * {
-      color: var(--clr-base-white);
+.no-footer {
+  &-logo {
+    position: relative;
+    width: fluid(40, 70);
+    figure {
+      @include flex-center();
     }
-    .cnt {
-      .top-wrap {
-        display: flex;
-        justify-content: space-between;
-        gap: fluid(24, 60);
-        @include mq(lg) {
-          flex-direction: column;
-        }
-
-        .left {
-          display: flex;
-          flex-direction: column;
-          gap: fluid(20, 36);
-
-          @include mq(md) {
-            align-items: flex-start;
-          }
-        }
-        .right {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
+  }
+  &-menu {
+    > ul {
+      @include flex-center();
+      gap: var(--gap-md);
+      > li {
+        a {
+          font-size: fluid(14, 16);
+          font-weight: 500;
         }
       }
-      .middle-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: fluid(36, 48) 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        flex-wrap: wrap;
-        gap: fluid(12, 24);
-      }
-      .bottom-wrap {
-        padding-top: fluid(36, 48);
-      }
     }
-    &-logo {
-      width: 11.5rem;
-      height: 7.2rem;
-      @include mq(md) {
-        width: 8rem;
-        height: 5rem;
-      }
-      a {
-        width: 100%;
-        height: 100%;
-        display: block;
-        background: url("/resource/images/logo/logo_white.png");
-        background-size: contain;
-      }
+  }
+  &-top {
+    display: flex;
+    align-items: center;
+    padding: fluid(32, 64) 0 fluid(18, 36) 0;
+    justify-content: space-between;
+  }
+  &-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: fluid(20, 40) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.24);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+    @include mq(sm) {
+      flex-direction: column;
+      gap: var(--gap-md);
+      align-items: flex-start;
     }
-    &-info {
+  }
+  &-info {
+    > ul {
       display: flex;
       align-items: center;
+      gap: var(--gap-xs);
+      max-width: 66rem;
       flex-wrap: wrap;
-      max-width: fluid(300, 600);
-      column-gap: fluid(8, 16);
-      row-gap: fluid(4, 8);
+      font-size: fluid(12, 14);
+      @include mq(sm) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       li {
         display: flex;
         align-items: center;
-        gap: fluid(8, 12);
+        gap: var(--gap-xs);
+        @include mq(sm) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
         span {
-          width: 8rem;
-          flex-shrink: 0;
-          font-weight: 500;
-          @include mq(md) {
-            display: none;
-          }
+          font-weight: 400;
+          opacity: 0.8;
         }
         p {
+          font-weight: 500;
         }
       }
     }
-    &-menu {
-      text-align: center;
-    }
-    &-gnb {
-      display: flex;
-      gap: fluid(16, 40);
-      @include mq(md) {
-      }
-      > li {
-        > a {
-          span {
-            font-weight: 600;
-            font-size: fluid(14, 16);
-          }
-        }
-      }
-    }
-    &-lnb {
-      padding-top: fluid(10, 20);
-      display: flex;
-      flex-direction: column;
-      gap: fluid(8, 14);
-      align-items: center;
-      @include mq(md) {
-        display: none;
-      }
-      > li {
-        a {
-          font-size: fluid(12, 14);
-        }
-      }
-    }
-    &-social {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: fluid(6, 10);
-      @include mq(lg) {
-        justify-content: flex-start;
-      }
+  }
+  &-social {
+    > ul {
+      @include flex-center();
+      gap: var(--gap-xs);
       li {
         a {
-          width: fluid(30, 40);
-          height: fluid(30, 40);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(255, 255, 255, 0.2);
+          width: fluid(20, 40);
+          height: fluid(20, 40);
           border-radius: 3rem;
+          background: rgba(255, 255, 255, 0.08);
+          @include flex-center();
           img {
             width: 50%;
           }

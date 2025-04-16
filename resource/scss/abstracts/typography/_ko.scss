@@ -18,6 +18,13 @@ $typography: (
         lh: 1.08,
         ls: 0,
       ),
+    creator: (
+      fm: var(--family-display),
+      fs: fluid(48, 148),
+      fw: 700,
+      lh: 1.08,
+      ls: 0,
+    ),
     //VISUAL-TITLE && SUB-VISUAL-TITLE
     md:
       (

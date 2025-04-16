@@ -6,9 +6,9 @@
   position: relative;
   height: var(--input-height);
   text-align: left;
-  border-radius: 0.4rem;
-  box-shadow: var(--clr-input-main);
+  border-bottom: 1px solid var(--clr-border-main);
   outline: none;
+  padding: 0 fluid(15, 18);
 }
 
 .dropdown:hover {
@@ -19,7 +19,6 @@
   cursor: pointer;
   display: flex;
   width: 100%;
-  padding: clamp(1.5rem, 0.1941747573vw + 1.427184466rem, 1.8rem);
   justify-content: space-between;
   align-items: center;
   height: 100%;
@@ -32,7 +31,6 @@
   line-height: 20px;
 }
 .dropdown.active {
-  box-shadow: var(--clr-input-focus);
 }
 .dropdown.active .select > i {
   transform: rotate(-90deg);
@@ -48,7 +46,6 @@
   display: none;
   max-height: 24rem;
   overflow-y: auto;
-  background: var(--clr-base-white);
   z-index: 9;
   padding: 0;
   list-style: none;
@@ -59,7 +56,7 @@
   }
 }
 .dropdown-menu li {
-  padding: 1.6rem 3rem;
+  padding: fluid(15, 18);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   display: flex;

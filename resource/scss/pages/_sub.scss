@@ -1,4 +1,122 @@
 @use "../abstracts/" as *;
 
 .no-sub {
+  &-who {
+    width: 100%;
+    @include flex-center();
+    &__inner {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: var(--gap-2xl);
+      @include mq(md) {
+        grid-template-columns: 1fr;
+      }
+      .--cnt {
+        padding: 0;
+        > ul {
+          display: flex;
+          flex-direction: column;
+          gap: var(--gap-3xl);
+          @include mq(md) {
+            gap: var(--gap-xl);
+          }
+          > li {
+            figure {
+              img {
+                display: block;
+              }
+            }
+            .txt {
+              padding: fluid(24, 48) fluid(32, 64);
+              background: rgba(255, 255, 255, 0.08);
+            }
+          }
+        }
+      }
+      .--sub-section-title-wrap {
+        hgroup {
+          position: sticky;
+          top: calc(var(--header-height) + 2rem);
+          @include mq(md) {
+            position: static;
+          }
+        }
+      }
+    }
+  }
+  &-office {
+    &__inner {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: var(--gap-2xl);
+      align-items: center;
+      @include mq(md) {
+        grid-template-columns: 1fr;
+      }
+      .--cnt {
+        padding: 0;
+      }
+      .swiper {
+        ul {
+          li {
+            width: 100% !important;
+          }
+        }
+      }
+      .--sub-section-title-wrap {
+        @include mq(md) {
+          display: flex;
+          gap: var(--gap-3xl);
+          align-items: flex-end;
+        }
+        > ul {
+          display: flex;
+          align-items: center;
+          gap: var(--gap-md);
+          .no-btn-swiper {
+            position: static;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+  &-banner {
+    width: 100%;
+    height: fluid(400, 800);
+    overflow: hidden;
+    background-image: url("/resource/images/common/image_placeholder.png");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: fluid(32, 64) fluid(48, 80);
+    .txt {
+    }
+  }
+  &-benefits {
+    width: 100%;
+    .--cnt {
+      > ul {
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid var(--clr-border-main);
+        > li {
+          padding: fluid(24, 40) 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid var(--clr-border-main);
+          gap: var(--gap-3xl);
+          figure {
+            img {
+              display: block;
+            }
+          }
+          h4 {
+            font-family: "Archivo", sans-serif;
+          }
+        }
+      }
+    }
+  }
 }

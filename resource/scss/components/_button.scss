@@ -55,17 +55,11 @@
   &::after {
     display: none;
   }
-  &__white {
-    background: var(--clr-base-white);
-    color: var(--clr-primary-main);
-    &:hover {
-      background: var(--clr-primary-main);
+  &__outline {
+    &--white {
+      border: 1px solid var(--clr-border-main);
       color: var(--clr-base-white);
     }
-  }
-  &__primary {
-    background: var(--clr-primary-main);
-    color: var(--clr-primary-text);
   }
 }
 

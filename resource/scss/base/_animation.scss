@@ -1,0 +1,13 @@
+@use "../abstracts" as *;
+
+@keyframes scrolldown {
+  0% {
+    background-position: 0 fluid(-40, -80);
+  }
+  75% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 fluid(40, 80);
+  }
+}
