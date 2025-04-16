@@ -32,8 +32,15 @@
         </div>
         <div class="txt">
             <h3 class="no-display-md">
-                Where Creators <br>
-                Become Brands
+                <div>
+                    <span>Where</span> <span>Creators</span>
+                </div>
+                <div>
+                    <span>
+                        Become
+                    </span>
+                    <span>Brands</span>
+                </div>
             </h3>
         </div>
     </div>

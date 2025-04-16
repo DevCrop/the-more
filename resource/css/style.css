@@ -4672,37 +4672,57 @@ textarea {
   overflow: hidden;
 }
 .no-sub-visual-about .images {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--gap-xl);
+  width: 100%;
+  position: relative;
 }
 .no-sub-visual-about .images > ul {
+  position: absolute;
+  width: 33.3333333%;
   display: flex;
   flex-direction: column;
   gap: var(--gap-md);
+  top: 0;
+  padding: 0 calc(var(--gutter-grid-x) / 2);
+}
+.no-sub-visual-about .images > ul:nth-child(1) {
+  left: 0;
 }
 .no-sub-visual-about .images > ul:nth-child(2) {
   position: relative;
   z-index: 1;
+  left: 50%;
+  top: 0%;
+  transform: translateX(-50%);
+}
+.no-sub-visual-about .images > ul:nth-child(3) {
+  right: 0;
 }
 .no-sub-visual-about .images > ul li figure {
   height: 100%;
 }
 .no-sub-visual-about .images > ul li figure img {
   height: 100%;
+  display: block;
 }
 .no-sub-visual-about .txt {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0;
-  visibility: hidden;
   z-index: 2;
+  width: 100%;
+  text-align: center;
 }
 .no-sub-visual-about .txt h3 {
   font-weight: 300;
   mix-blend-mode: difference;
+}
+.no-sub-visual-about .txt h3 div {
+  overflow: hidden;
+}
+.no-sub-visual-about .txt h3 div span {
+  transform: translateY(100%);
+  display: inline-block;
 }
 
 .dropdown {
@@ -4908,105 +4928,73 @@ textarea {
 .no-main-creators {
   position: relative;
   width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+.no-main-creators__inner {
+  width: 100%;
   height: 100vh;
 }
+.no-main-creators .images {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter-grid-x);
+}
+.no-main-creators .images .image {
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(20px);
+  transform: translateY(100px);
+  transition: none;
+}
+.no-main-creators .images .img-1 {
+  grid-column: span 6;
+  transform: translateX(-50%) translateY(-50%);
+}
+.no-main-creators .images .img-2 {
+  grid-column: span 4; /* 나머지 6/12 너비 */
+  height: 100%;
+  transform: translateX(50%) translateY(-80%);
+}
+.no-main-creators .images .img-3 {
+  grid-column: 2/span 6; /* 3번째부터 시작해서 4칸 차지 */
+  transform: translateY(30%);
+}
+.no-main-creators .images .img-4 {
+  grid-column: 8/span 4; /* 8번째부터 시작해서 5칸 차지 */
+  transform: translateX(80%);
+}
 .no-main-creators .txt {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
   text-align: center;
-  flex-direction: column;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: var(--gap-md);
-  mix-blend-mode: difference;
-  width: 100%;
-  height: 100%;
 }
 .no-main-creators .txt h2 {
   font-weight: 300;
 }
 .no-main-creators .txt p {
-  font-weight: 200;
+  font-weight: 400;
+  width: clamp(28rem, 9.0614886731vw + 24.6019417476rem, 42rem);
+  height: clamp(12rem, 3.8834951456vw + 10.5436893204rem, 18rem);
+  border-radius: 50rem;
+  border: clamp(0.6rem, 0.3883495146vw + 0.454368932rem, 1.2rem) solid var(--clr-accent-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .no-main-creators .txt > div {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--gap-md);
-}
-.no-main-creators__inner {
-  width: 100%;
-  height: 100%;
-}
-.no-main-creators__inner .images {
-  position: absolute;
-}
-.no-main-creators__inner .images .image {
-  position: relative;
-  opacity: 0;
-  visibility: hidden;
-  filter: blur(20px);
-  transition: none;
-}
-.no-main-creators__inner .images .img-1 {
-  left: 0;
-  top: 20%;
-  width: clamp(24rem, 7.7669902913vw + 21.0873786408rem, 36rem);
-  transform: translateX(-100px);
-}
-.no-main-creators__inner .images .img-2 {
-  width: clamp(28rem, 6.4724919094vw + 25.572815534rem, 38rem);
-  right: 0;
-  top: 10%;
-  transform: translateX(100px);
-}
-.no-main-creators__inner .images .img-3 {
-  width: clamp(36rem, 7.7669902913vw + 33.0873786408rem, 48rem);
-  bottom: 12%;
-  left: 0;
-  transform: translateY(100px);
-}
-.no-main-creators__inner .images .img-4 {
-  width: clamp(18rem, 3.8834951456vw + 16.5436893204rem, 24rem);
-  bottom: 15%;
-  right: 0;
-  transform: translateY(100px);
-}
-.no-main-creators-impact {
-  width: 48rem;
-  height: 22rem;
-  border-radius: 20rem;
-  border: 12px solid var(--clr-accent-main);
-  color: var(--clr-accent-main);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.no-main-creators-final {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.no-main-creators-final figure {
-  width: clamp(24rem, 15.5339805825vw + 18.1747572816rem, 48rem);
-  height: clamp(24rem, 15.5339805825vw + 18.1747572816rem, 48rem);
-  border-radius: 100%;
-  overflow: hidden;
-  opacity: 0;
-}
-.no-main-creators-final figure img {
-  height: 100%;
-}
-.no-main-creators-final article {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
 }
 .no-main-inquiry {
   background-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.96)), url("/resource/images/common/contact_bg.jpg");

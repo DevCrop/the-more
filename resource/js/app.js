@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const subOfficeSwiper = () => {
   const office = document.querySelector(".no-sub-office-swiper");
   if (!office) return;
-  
+
   const swiper = new Swiper(office, {
     autoplay: {
       delay: 5000,
@@ -69,8 +69,84 @@ const dropdown = () => {
 };
 
 const subVisualAboutAnimation = () => {
-  const section = document.querySelector(".no-sub-visual-about");
-  if (!section) return;
+  const subVisual = document.querySelector(".no-sub-visual-about");
+  if (!subVisual) return;
+
+  const subVisualDOM = {
+    uls: subVisual.querySelectorAll("ul"),
+    spans: subVisual.querySelectorAll(".txt h3 span"),
+  };
+
+  const [firstUl, secondUl, thirdUl] = subVisualDOM.uls;
+  const lis = Array.from(secondUl.querySelectorAll("li"));
+  const middleLi = lis[4];
+  const others = lis.filter((_, i) => i !== 4);
+
+  const tl = gsap.timeline();
+
+  // Step 1. 첫 번째, 세 번째 ul 동시 시작
+  tl.to(
+    firstUl,
+    {
+      yPercent: -45,
+      duration: 1,
+      ease: "power3.out",
+    },
+    0
+  );
+
+  tl.to(
+    thirdUl,
+    {
+      yPercent: -50,
+      duration: 2.4,
+      ease: "power3.out",
+    },
+    0
+  ); // 동시에 실행
+
+  // ✅ Step 2. secondUl도 thirdUl과 동시에 움직이기 시작 (동기화)
+  tl.to(
+    secondUl,
+    {
+      y: "-27.5%",
+      duration: 2.8,
+      ease: "power3.out",
+    },
+    0
+  ); // 동시에 시작
+
+  // Step 3. 가운데 제외 li 흐려지며 사라짐
+  tl.to(others, {
+    opacity: 0,
+    filter: "blur(24px)",
+    duration: 3,
+    ease: "power2.out",
+  }); // secondUl 움직임 거의 끝날 때
+
+  // Step 4. 가운데 ul 확대
+  tl.to(
+    secondUl,
+    {
+      scale: 5,
+      transformOrigin: "center center",
+      duration: 3,
+      ease: "power3.out",
+    },
+    "-=1.5"
+  );
+
+  // Step 5. 텍스트 등장 (stagger로 순차)
+  tl.to(
+    subVisualDOM.spans,
+    {
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+      stagger: 0.1,
+    },
+    ">"
+  );
 };
 
 const mainAboutAnimation = () => {
@@ -111,43 +187,40 @@ const mainAboutAnimation = () => {
 };
 
 const mainCreatorsAnimation = () => {
-  const creator = document.querySelector(".no-main-creators");
-
-  if (!creator) return;
-
-  const creatorDOM = {
-    creatorInner: creator.querySelector(".no-main-creators__inner"),
-    creatorImage: creator.querySelectorAll(".images img"),
-    creatorFinal: creator.querySelector(".no-main-creators-final"),
-  };
+  const about = document.querySelector(".no-main-creators");
+  const inner = document.querySelector(".no-main-creators__inner");
+  if (!about || !inner) return;
 
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: creator,
-      start: "top 50%",
-      end: "+=200%",
+      trigger: about,
+      start: "top top",
+      end: "+=100%",
+      scrub: true,
+      pin: inner,
+      // markers: true,
     },
   });
-  /*
-  tl.to(creatorDOM.creatorImage, {
+
+  tl.to(".no-main-creators .images", {
     opacity: 1,
     visibility: "visible",
     filter: "blur(0px)",
-    x: 0,
-    y: 0,
-    stagger: 0.1,
-    duration: 1,
+    duration: 0.8,
     ease: "power2.out",
-  }).to(creatorDOM.creatorImage, {
-    filter: "blur(0px)",
-    left: "50%",
-    top: "50%",
-    x: "-50%",
-    y: "-50%",
-    width: "30rem",
-    height: "30rem",
-    borderRadius: "30rem",
-  });*/
+  }).to(
+    ".no-main-creators .image",
+    {
+      transform: "translateX(0px) translateY(0px)",
+      duration: 1,
+      ease: "power3.out",
+      stagger: 0.1,
+      opacity: 1,
+      visibility: "visible",
+      filter: "blur(0px)",
+    },
+    "<"
+  );
 };
 
 const mainServiceAnimaion = () => {

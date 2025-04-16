@@ -202,16 +202,9 @@
         </div>
     </section>
 
+
     <section class="no-main-creators">
         <div class="no-container-3xl">
-            <div class="txt">
-                <h2 class="no-display-lg">THE STAGE</h2>
-                <div>
-                    <h2 class="no-display-lg">IS SET </h2>
-                    <P class="no-main-creators-impact no-display-creator">NOW</P>
-                </div>
-                <h2 class="no-display-lg">YOUR TURN</h2>
-            </div>
             <div class="no-main-creators__inner">
                 <div class="images">
                     <img src="<?=IMG_PATH?>/main/main_about_img_1.jpg" alt="" class="img-1 image">
@@ -219,10 +212,17 @@
                     <img src="<?=IMG_PATH?>/main/main_about_img_3.jpg" alt="" class="img-3 image">
                     <img src="<?=IMG_PATH?>/main/main_about_img_4.jpg" alt="" class="img-4 image">
                 </div>
-            </div>
+                <div class="txt">
+                    <h2 class="no-display-lg">THE STAGE</h2>
+                    <div>
+                        <h2 class="no-display-lg">IS SET </h2>
+                        <P class="no-main-creators-impact no-display-creator">NOW</P>
+                    </div>
+                    <h2 class="no-display-lg">YOUR TURN</h2>
 
-        </div>
-        <!--
+                </div>
+            </div>
+            <!--
         <div class="no-main-creators-final">
             <figure>
                 <img src="<?=IMG_PATH?>/common/create_bg.jpg" alt="">
@@ -235,7 +235,9 @@
                 </p>
             </article>
         </div>-->
+        </div>
     </section>
+
 
     <section class="no-main-inquiry">
         <div class="no-section-lg">
