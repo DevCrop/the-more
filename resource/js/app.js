@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   dropdown();
   subVisualAboutAnimation();
   subOfficeSwiper();
+  mainDiffAnimation();
+  mainHeroAnimation();
+  marquee();
 });
 
 const subOfficeSwiper = () => {
@@ -68,84 +71,123 @@ const dropdown = () => {
   }
 };
 
+function marquee() {
+  const marquees = document.querySelectorAll('[wb-data="marquee"]');
+
+  if (!marquees.length) return;
+
+  marquees.forEach((marquee) => {
+    const duration = parseInt(marquee.getAttribute("duration"), 10) || 5;
+    const marqueeContent = marquee.querySelector(".no-marquee__content");
+
+    if (!marqueeContent) return;
+
+    const marqueeContentClone = marqueeContent.cloneNode(true);
+    marquee.append(marqueeContentClone);
+
+    let tween;
+
+    const playMarquee = () => {
+      let progress = tween ? tween.progress() : 0;
+      tween && tween.progress(0).kill();
+
+      const height = parseInt(
+        getComputedStyle(marqueeContent).getPropertyValue("height"),
+        10
+      );
+      const gap =
+        parseInt(
+          getComputedStyle(marqueeContent).getPropertyValue("row-gap")
+        ) || 0;
+
+      const distanceToTranslate = -1 * (height + gap);
+
+      tween = gsap.fromTo(
+        [marqueeContent, marqueeContentClone],
+        { y: 0 },
+        {
+          y: distanceToTranslate,
+          duration,
+          ease: "none",
+          repeat: -1,
+        }
+      );
+
+      tween.progress(progress);
+    };
+
+    playMarquee();
+
+    function debounce(func) {
+      let timer;
+      return function () {
+        clearTimeout(timer);
+        timer = setTimeout(func, 500);
+      };
+    }
+
+    window.addEventListener("resize", debounce(playMarquee));
+  });
+}
+
 const subVisualAboutAnimation = () => {
   const subVisual = document.querySelector(".no-sub-visual-about");
   if (!subVisual) return;
 
   const subVisualDOM = {
-    uls: subVisual.querySelectorAll("ul"),
+    uls: subVisual.querySelectorAll(".images ul"),
     spans: subVisual.querySelectorAll(".txt h3 span"),
+    marquee: subVisual.querySelectorAll(".no-marquee"),
   };
-
-  const [firstUl, secondUl, thirdUl] = subVisualDOM.uls;
-  const lis = Array.from(secondUl.querySelectorAll("li"));
-  const middleLi = lis[4];
-  const others = lis.filter((_, i) => i !== 4);
 
   const tl = gsap.timeline();
 
-  // Step 1. 첫 번째, 세 번째 ul 동시 시작
-  tl.to(
-    firstUl,
+  // 텍스트 등장
+  tl.to(subVisualDOM.spans, {
+    y: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.1,
+  }).to(
+    subVisualDOM.marquee,
     {
-      yPercent: -45,
-      duration: 1,
-      ease: "power3.out",
+      opacity: 1,
+      visibility: "visible",
+      duration: 1.8,
+      stagger: 0.05,
     },
-    0
+    "<"
   );
+};
 
-  tl.to(
-    thirdUl,
-    {
-      yPercent: -50,
-      duration: 2.4,
-      ease: "power3.out",
+const mainHeroAnimation = () => {
+  const section = document.querySelector(".no-main-hero");
+  if (!section) {
+    return;
+  }
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top 50%",
+      markers: true,
     },
-    0
-  ); // 동시에 실행
+  });
 
-  // ✅ Step 2. secondUl도 thirdUl과 동시에 움직이기 시작 (동기화)
-  tl.to(
-    secondUl,
+  tl.to(section.querySelectorAll(".no-main-hero-txt div span"), {
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
+    stagger: 0.05,
+  }).to(
+    section.querySelector("img"),
     {
-      y: "-27.5%",
-      duration: 2.8,
-      ease: "power3.out",
-    },
-    0
-  ); // 동시에 시작
-
-  // Step 3. 가운데 제외 li 흐려지며 사라짐
-  tl.to(others, {
-    opacity: 0,
-    filter: "blur(24px)",
-    duration: 3,
-    ease: "power2.out",
-  }); // secondUl 움직임 거의 끝날 때
-
-  // Step 4. 가운데 ul 확대
-  tl.to(
-    secondUl,
-    {
-      scale: 5,
-      transformOrigin: "center center",
+      scale: "1",
       duration: 3,
       ease: "power3.out",
     },
-    "-=1.5"
-  );
-
-  // Step 5. 텍스트 등장 (stagger로 순차)
-  tl.to(
-    subVisualDOM.spans,
-    {
-      y: 0,
-      duration: 1,
-      ease: "power3.out",
-      stagger: 0.1,
-    },
-    ">"
+    "<"
   );
 };
 
@@ -158,44 +200,69 @@ const mainAboutAnimation = () => {
     scrollTrigger: {
       trigger: about,
       start: "top top",
-      end: "+=100%",
+      end: "+=400%",
       scrub: true,
       pin: inner,
-      // markers: true,
+      //markers: true,
     },
   });
 
-  tl.to(".no-main-about .images", {
+  // 이미지 등장 + images y 슬라이드 동시에 시작
+  tl.to(".no-main-about .image", {
+    transform: "translateX(0px) translateY(0px)",
     opacity: 1,
     visibility: "visible",
     filter: "blur(0px)",
-    duration: 0.8,
-    ease: "power2.out",
-  }).to(
-    ".no-main-about .image",
-    {
-      transform: "translateX(0px) translateY(0px)",
-      duration: 1,
-      ease: "power3.out",
-      stagger: 0.1,
-      opacity: 1,
-      visibility: "visible",
-      filter: "blur(0px)",
-    },
-    "<"
-  );
+    duration: 3,
+    ease: "power3.out",
+    stagger: 0.08,
+  })
+
+    // .images 슬라이드 y 시작 (동시에 시작)
+    .to(
+      ".no-main-about .images",
+      {
+        y: "-100%",
+        duration: 2,
+        ease: "none",
+      },
+      "<" // 이미지 등장과 동시에 시작
+    )
+
+    // 텍스트 등장 (span 각각 stagger로 등장)
+    .to(
+      ".no-main-about .--section-title-wrap span",
+      {
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        stagger: 0.15,
+      },
+      "-=1.5"
+    )
+    .to(
+      ".no-main-about .--section-title-wrap a",
+      {
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        stagger: 0.15,
+      },
+      "-=1.5"
+    );
 };
 
 const mainCreatorsAnimation = () => {
   const about = document.querySelector(".no-main-creators");
-  const inner = document.querySelector(".no-main-creators__inner");
-  if (!about || !inner) return;
+  if (!about) return;
+  const inner = about.querySelector(".no-main-creators__inner");
+  const final = about.querySelector(".no-main-creators-final");
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: about,
       start: "top top",
-      end: "+=100%",
+      end: "+=400%",
       scrub: true,
       pin: inner,
       // markers: true,
@@ -208,65 +275,124 @@ const mainCreatorsAnimation = () => {
     filter: "blur(0px)",
     duration: 0.8,
     ease: "power2.out",
-  }).to(
-    ".no-main-creators .image",
-    {
-      transform: "translateX(0px) translateY(0px)",
-      duration: 1,
+  })
+    .to(
+      ".no-main-creators .image",
+      {
+        transform: "translateX(0px) translateY(0px)",
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.1,
+        opacity: 1,
+        visibility: "visible",
+        filter: "blur(0px)",
+      },
+      "<"
+    )
+    .to(".no-main-creators .image", {
+      duration: 3,
       ease: "power3.out",
       stagger: 0.1,
-      opacity: 1,
+      opacity: 0,
+      filter: "blur(10px)",
+    })
+    .to(final.querySelector("figure"), {
+      clipPath: "circle(100% at 50% 50%)",
+      duration: 3,
+      ease: "power3.out",
       visibility: "visible",
-      filter: "blur(0px)",
-    },
-    "<"
-  );
+    })
+    .to(final.querySelector("article"), {
+      opacity: 1,
+      duration: 3,
+      ease: "power3.out",
+      visibility: "visible",
+    });
 };
 
 const mainServiceAnimaion = () => {
   const service = document.querySelector(".no-main-service");
   if (!service) return;
 
+  const serviceWrap = service.querySelector("ul");
+  const serviceItems = service.querySelectorAll("li");
+  const serviceText = service.querySelectorAll(".--section-title-wrap span");
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: service,
       start: "top top",
-      end: "+=100%",
-      //markers: true,
+      end: "+=150%", // 움직임 여유
+      scrub: true,
+      pin: true,
+      // markers: true,
     },
   });
 
-  const serviceItems = service.querySelectorAll("li");
-
-  // opacity, blur 공통 처리
   tl.to(serviceItems, {
     opacity: 1,
     visibility: "visible",
     filter: "blur(0px)",
-    stagger: 0.1,
-    duration: 1,
-    ease: "power2.out",
+    ease: "none", // scrub일 땐 none이 자연스러움
   });
 
-  // 개별 transform 처리
+  tl.to(serviceWrap, {
+    y: "0%", // 현재 구조상 의미 없을 수도 있음
+    ease: "none",
+  });
+
+  // 개별 li에 transform 적용 (스크롤 따라)
   serviceItems.forEach((item, index) => {
     let props = {
-      duration: 1,
-      ease: "power2.out",
+      ease: "none",
     };
 
     if (index === 0) {
-      props.y = -20;
+      props.y = "-4%";
     } else if (index === 1) {
-      props.rotate = -5;
+      props.rotate = "-5deg";
     } else if (index === 2) {
-      props.y = -30;
+      props.y = "-6%";
     } else if (index === 3) {
-      props.rotate = 5;
+      props.rotate = "2deg";
     } else if (index === 4) {
-      props.y = -20;
+      props.y = "-4%";
     }
+
     tl.to(item, props, "<");
+  });
+  tl.to(
+    serviceText,
+    {
+      y: "0%",
+      stagger: 0.15,
+    },
+    "<"
+  );
+};
+
+const mainDiffAnimation = () => {
+  const section = document.querySelector(".no-main-dfferent");
+  if (!section) return;
+
+  const sectionTitle = section.querySelectorAll(".--section-title-wrap span");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top 80%", // 화면에 닿으면 실행
+      toggleActions: "play none none none",
+      // markers: true,
+    },
+  });
+
+  tl.to(sectionTitle, {
+    y: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+    duration: 1.2,
+    ease: "power3.out",
+    stagger: 0.1,
   });
 };
 
@@ -373,4 +499,16 @@ const headerSingle = () => {
   headerBtn.addEventListener("click", function () {
     header.classList.toggle("visible");
   });
+
+  const handleScroll = () => {
+    if (window.scrollY > 80) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  };
+
+  // 초기 실행 및 이벤트 등록
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // 페이지 진입 시 바로 반영되도록
 };

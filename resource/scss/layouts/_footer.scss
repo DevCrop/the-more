@@ -1,6 +1,7 @@
 @use "../abstracts" as *;
 
 .no-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
   &-logo {
     position: relative;
     width: fluid(40, 70);

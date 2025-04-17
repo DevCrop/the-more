@@ -66,13 +66,15 @@
 .no-btn-outline {
   font-family: "Archivo", sans-serif;
   display: inline-flex;
-  border-radius: 5rem;
-  a {
+  a,
+  button {
+    border-radius: 5rem;
     @include flex-center();
     display: inline-flex;
     font-size: fluid(15, 18);
     transition: var(--tran-45);
     padding: fluid(8, 16) fluid(16, 24);
+    color: var(--clr-base-white);
     &:hover {
       div {
         transform: scale(1);
@@ -94,7 +96,10 @@
     }
   }
   &__white {
-    border: 1px solid var(--clr-border-main);
+    a {
+      border: 1px solid var(--clr-border-main);
+      color: var(--clr-base-white);
+    }
   }
 }
 

@@ -1,23 +1,31 @@
 @use "../abstracts" as *;
 
-.marquee {
+.no-marquee {
   width: 100%;
   display: flex;
   overflow: hidden;
   white-space: nowrap;
   gap: 1rem;
   position: relative;
-}
-.marquee-content {
-  display: flex;
-  width: fit-content;
-  flex: auto;
-  flex-direction: row;
-  gap: fluid(12, 24);
-}
-.marquee-item {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  width: fluid(240, 320);
+  &__container {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    gap: var(--gap-md);
+    flex-direction: column;
+  }
+  &__content {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    gap: fluid(12, 24);
+    flex-direction: column;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: fluid(240, 320);
+  }
 }

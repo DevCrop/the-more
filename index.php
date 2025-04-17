@@ -17,11 +17,21 @@
                     </figure>
                     <div class="no-main-hero-txt">
                         <div class="no-container-3xl">
-                            <h2 class="no-display-sm">THE MORE ENT.</h2>
-                            <h4 class="no-display-xs">WE BUILDS REAL CREATORS</h4>
-                            <P class="no-heading-sm">
-                                크리에이터의 다음을 설계하는 더모어는 여러분의 성장을 책임집니다
-                            </P>
+                            <h2 class="no-display-sm">
+                                <div>
+                                    <span>THE</span> <span>MORE</span> <span>ENT.</span>
+                                </div>
+                            </h2>
+                            <h4 class="no-display-xs">
+                                <div>
+                                    <span>WE</span> <span>BUILDS</span> <span>REAL</span> <span>CREATORS</span>
+                                </div>
+                            </h4>
+                            <div class="no-heading-sm">
+                                <P>
+                                    <span>크리에이터의 다음을 설계하는</span> <span>더모어는</span> <span>여러분의 성장을 책임집니다</span>
+                                </P>
+                            </div>
                             <div class="no-btn-outline__white no-btn-outline no-mg-3xl--t">
                                 <a href="#">
                                     <div>
@@ -51,22 +61,39 @@
                     <img src="<?=IMG_PATH?>/main/main_about_img_2.jpg" alt="" class="img-2 image">
                     <img src="<?=IMG_PATH?>/main/main_about_img_3.jpg" alt="" class="img-3 image">
                     <img src="<?=IMG_PATH?>/main/main_about_img_4.jpg" alt="" class="img-4 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_1.jpg" alt="" class="img-5 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_2.jpg" alt="" class="img-6 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_3.jpg" alt="" class="img-7 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_4.jpg" alt="" class="img-8 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_1.jpg" alt="" class="img-9 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_2.jpg" alt="" class="img-10 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_3.jpg" alt="" class="img-11 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_4.jpg" alt="" class="img-12 image">
                 </div>
                 <div class="--section-title-wrap">
                     <hgroup>
-                        <h2 class="no-display-xs">WE ARE THE MORE</h2>
-                        <p class="no-heading-sm --fw-400">
-                            유튜버, 방송인, 연예인. 당신이 꿈꾸는 무대가 무엇이든 기획부터 <br>
-                            교육, 제작, 운영, 브랜딩, 매니지먼트까지 처음부터 <b>그 다음까지 </b> 단 한 걸음도 혼자 두지 않습니다.
-                        </p>
+                        <h2 class="no-display-xs">
+                            <div><span>WE ARE</span> <span>THE MORE</span></div>
+                        </h2>
+                        <div class="no-heading-sm --fw-400">
+                            <p>
+                                <span>
+                                    유튜버, 방송인, 연예인. 당신이 꿈꾸는 무대가 무엇이든 기획부터
+                                    교육, 제작, 운영, 브랜딩, 매니지먼트까지 처음부터 <b>그 다음까지 </b>
+                                    단 한 걸음도 혼자 두지 않습니다.
+                                </span>
+                            </p>
+                        </div>
                     </hgroup>
-                    <div class="no-btn-outline__white no-btn-outline no-mg-3xl--t">
-                        <a href="#">
-                            <div>
-                                <i class="fa-regular fa-arrow-right-long"></i>
-                            </div>
-                            About Us
-                        </a>
+                    <div class="no-mg-3xl--t">
+                        <div class="no-btn-outline__white no-btn-outline ">
+                            <a href="#">
+                                <div>
+                                    <i class="fa-regular fa-arrow-right-long"></i>
+                                </div>
+                                About Us
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,58 +103,69 @@
     <section class="no-main-service">
         <div class="no-section-lg">
             <div class="no-container-3xl">
-                <div class="--section-title-wrap">
-                    <hgroup>
-                        <h2 class="no-display-xs">WHAT WE DO</h2>
-                        <p class="no-heading-sm --fw-400">
-                            콘텐츠를 만들고, 콘텐츠 이후를 함께합니다. <br>
-                            더모어는 당신이 혼자 가기 어려운 그 다음을 함께합니다.
-                        </p>
-                    </hgroup>
-                </div>
-                <div class="--cnt">
-                    <ul>
-                        <li>
-                            <div class="img">
-                                <img src="<?=IMG_PATH?>/main/main_service_img_1.jpg" alt="">
+                <div class="no-main-service__inner">
+                    <div class="--section-title-wrap">
+                        <hgroup>
+                            <h2 class="no-display-xs">
+                                <div>
+                                    <span>WHAT</span> <span>WE</span> <span>DO</span>
+                                </div>
+                            </h2>
+                            <div class="no-heading-sm --fw-400">
+                                <p>
+                                    <span>
+                                        콘텐츠를 만들고, 콘텐츠 이후를 함께합니다. <br>
+                                        더모어는 당신이 혼자 가기 어려운 그 다음을 함께합니다.
+
+                                    </span>
+                                </p>
                             </div>
-                            <div class="txt">
-                                <h3 class="no-heading-md">Academy</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="img">
-                                <img src="<?=IMG_PATH?>/main/main_service_img_2.jpg" alt="">
-                            </div>
-                            <div class="txt">
-                                <h3 class="no-heading-sm">Production</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="img">
-                                <img src="<?=IMG_PATH?>/main/main_service_img_3.jpg" alt="">
-                            </div>
-                            <div class="txt">
-                                <h3 class="no-heading-sm">Broadcast Training</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="img">
-                                <img src="<?=IMG_PATH?>/main/main_service_img_4.jpg" alt="">
-                            </div>
-                            <div class="txt">
-                                <h3 class="no-heading-sm">Creator Management</h3>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="img">
-                                <img src="<?=IMG_PATH?>/main/main_service_img_5.jpg" alt="">
-                            </div>
-                            <div class="txt">
-                                <h3 class="no-heading-sm">Business & Legal Support</h3>
-                            </div>
-                        </li>
-                    </ul>
+                        </hgroup>
+                    </div>
+                    <div class="--cnt">
+                        <ul>
+                            <li>
+                                <div class="img">
+                                    <img src="<?=IMG_PATH?>/main/main_service_img_1.jpg" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h3 class="no-heading-md">Academy</h3>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img">
+                                    <img src="<?=IMG_PATH?>/main/main_service_img_2.jpg" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h3 class="no-heading-sm">Production</h3>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img">
+                                    <img src="<?=IMG_PATH?>/main/main_service_img_3.jpg" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h3 class="no-heading-sm">Broadcast Training</h3>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img">
+                                    <img src="<?=IMG_PATH?>/main/main_service_img_4.jpg" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h3 class="no-heading-sm">Creator Management</h3>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img">
+                                    <img src="<?=IMG_PATH?>/main/main_service_img_5.jpg" alt="">
+                                </div>
+                                <div class="txt">
+                                    <h3 class="no-heading-sm">Business & Legal Support</h3>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,16 +176,24 @@
             <div class="no-container-3xl">
                 <div class="--section-title-wrap">
                     <hgroup>
-                        <h2 class="no-display-xs">WHY THE MORE</h2>
-                        <p class="no-heading-sm --fw-400">
-                            더모어는 단순한 제작이 아니라 브랜딩, 교육, 운영, 수익까지 <br>
-                            크리에이터가 혼자서는 닿기 어려운 그 다음을 함께 고민하고, 함께 실행하는 팀입니다.
-                        </p>
+                        <h2 class="no-display-xs">
+                            <div>
+                                <span>WHY</span> <span>THE</span> <span>MORE</span>
+                            </div>
+                        </h2>
+                        <div class="no-heading-sm --fw-400">
+                            <p>
+                                <span>
+                                    더모어는 단순한 제작이 아니라 브랜딩, 교육, 운영, 수익까지 <br>
+                                    크리에이터가 혼자서는 닿기 어려운 그 다음을 함께 고민하고, 함께 실행하는 팀입니다.
+                                </span>
+                            </p>
+                        </div>
                     </hgroup>
                 </div>
                 <div class="--cnt">
                     <ul>
-                        <li>
+                        <li class="--icon-card">
                             <div class="icon">
                                 <img src="<?=IMG_PATH?>/icon/main_why_icon_4.svg" alt="">
                             </div>
@@ -159,7 +205,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li>
+                        <li class="--icon-card">
                             <div class="icon">
                                 <img src="<?=IMG_PATH?>/icon/main_why_icon_3.svg" alt="">
                             </div>
@@ -171,7 +217,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li>
+                        <li class="--icon-card">
                             <div class="icon">
                                 <img src="<?=IMG_PATH?>/icon/main_why_icon_1.svg" alt="">
                             </div>
@@ -183,7 +229,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li>
+                        <li class="--icon-card">
                             <div class="icon">
                                 <img src="<?=IMG_PATH?>/icon/main_why_icon_2.svg" alt="">
                             </div>
@@ -204,8 +250,8 @@
 
 
     <section class="no-main-creators">
-        <div class="no-container-3xl">
-            <div class="no-main-creators__inner">
+        <div class="no-main-creators__inner">
+            <div class="no-container-3xl">
                 <div class="images">
                     <img src="<?=IMG_PATH?>/main/main_about_img_1.jpg" alt="" class="img-1 image">
                     <img src="<?=IMG_PATH?>/main/main_about_img_2.jpg" alt="" class="img-2 image">
@@ -222,19 +268,18 @@
 
                 </div>
             </div>
-            <!--
-        <div class="no-main-creators-final">
-            <figure>
-                <img src="<?=IMG_PATH?>/common/create_bg.jpg" alt="">
-            </figure>
-            <article>
-                <h3 class="no-display-sm ">이제 당신의 차례입니다</h3>
-                <p class="no-heading-md no-mg-lg--t">
-                    그 무대 위에 설 사람은 바로 당신입니다. <br>
-                    대표 크리에이터가 되기까지 더모어가 함께하겠습니다.
-                </p>
-            </article>
-        </div>-->
+            <div class="no-main-creators-final">
+                <figure>
+                    <img src="<?=IMG_PATH?>/common/create_bg.jpg" alt="">
+                </figure>
+                <article>
+                    <h3 class="no-display-sm ">이제 당신의 차례입니다</h3>
+                    <p class="no-heading-md no-mg-lg--t">
+                        그 무대 위에 설 사람은 바로 당신입니다. <br>
+                        대표 크리에이터가 되기까지 더모어가 함께하겠습니다.
+                    </p>
+                </article>
+            </div>
         </div>
     </section>
 
