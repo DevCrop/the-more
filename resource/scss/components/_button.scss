@@ -96,7 +96,8 @@
     }
   }
   &__white {
-    a {
+    a,
+    button {
       border: 1px solid var(--clr-border-main);
       color: var(--clr-base-white);
     }

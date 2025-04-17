@@ -2,7 +2,7 @@
 
 <body>
 
-    <header id="no-header-single">
+    <header id="no-header-single" data-lenis-prevent>
         <div class="no-header">
             <div class="no-container-3xl">
                 <div class="no-header-inner">
@@ -20,7 +20,9 @@
                                     $depth_active = $depth['isActive'] ? 'active' : '';
                                 ?>
                             <li>
-                                <a href="<?= $depth['path'] ?>" class="<?= $depth_active ?>"><?= $depth['title'] ?></a>
+                                <a href="<?= $depth['path'] ?>" class="<?= $depth_active ?>">
+                                    <div><?= $depth['title'] ?></div>
+                                </a>
                                 <?php if (array_key_exists('pages', $depth) && count($depth['pages']) > 0) : ?>
                                 <ul class="no-header-lnb ">
                                     <?php foreach ($depth['pages'] as $pi => $PAGE): 
@@ -28,12 +30,13 @@
 											?>
                                     <li class="<?=$page_active?>">
                                         <a href="<?=$PAGE['path']?>" class="">
-                                            <?=$PAGE['title']?>
+                                            <div><?=$PAGE['title']?></div>
                                         </a>
                                     </li>
                                     <?php endforeach; ?>
                                 </ul>
                                 <?php endif; ?>
+                                <div class="line"></div>
                             </li>
                             <?php endforeach; ?>
 

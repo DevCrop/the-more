@@ -23,13 +23,10 @@
                         <form action="">
                             <fieldset>
                                 <div class="left">
-                                    <h2 class="no-display-md">Contact Us</h2>
+                                    <h2 class="no-display-xs">Contact Us</h2>
                                     <p class="no-body-xl --fw-400 no-mg-lg--t">
                                         당신이 상상한 무드, 우리가 장면으로 완성합니다. <br>
-                                        협업, 프로젝트, 단순한 궁금증까지
-                                    </p>
-                                    <p class="no-body-xl --fw-400 no-mg-sm--t">
-                                        언제든 더모어에게 이야기해 주세요. <br>
+                                        협업, 프로젝트, 단순한 궁금증까지 언제든 더모어에게 이야기해 주세요. <br>
                                         당신의 다음 장면을 기다리고 있습니다.
                                     </p>
                                 </div>
@@ -185,7 +182,7 @@
                 </div>
                 <div class="txt no-mg-xl--t">
                     <div class="title">
-                        <h3 class="no-display-sm">오시는 길</h3>
+                        <h3 class="no-display-xs">오시는 길</h3>
                     </div>
                     <ul>
                         <li>

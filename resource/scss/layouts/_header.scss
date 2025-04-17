@@ -24,6 +24,18 @@
 
     .no-header-menu {
       opacity: 1;
+      pointer-events: inherit;
+    }
+    .no-header-btn span {
+      &:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -5px);
+      }
     }
   }
   .no-header {
@@ -33,6 +45,14 @@
     }
     a {
       color: var(--clr-text-heading);
+      @include mq(md) {
+        overflow: hidden;
+      }
+      > div {
+        @include mq(md) {
+          transform: translateY(150%);
+        }
+      }
     }
     &-inner {
       display: flex;
@@ -67,6 +87,7 @@
         width: 100%;
         display: block;
         background: var(--clr-base-white);
+        transition: var(--tran-45);
       }
     }
     &-menu {
@@ -86,26 +107,45 @@
         transition: var(--tran-45);
         display: flex;
         flex-direction: column;
+        pointer-events: none;
       }
     }
     &-gnb {
       display: flex;
       align-items: center;
       gap: var(--gap-sm);
+      text-align: center;
       @include mq(md) {
         flex-direction: column;
-        gap: var(--gap-2xl);
+        text-align: start;
         align-items: flex-start;
+        width: 100%;
+        gap: 0;
       }
       > li {
         position: relative;
+        .line {
+          width: 0%;
+          height: 1px;
+          background: var(--clr-base-white);
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+        @include mq(md) {
+          width: 100%;
+          padding: var(--pd-xl) 0;
+        }
         > a {
           padding: fluid(10, 16) fluid(24, 40);
           font-size: fluid(16, 18);
           font-weight: 500;
+          display: block;
+          width: 16rem;
           @include mq(md) {
-            font-size: fluid(48, 16);
+            font-size: fluid(36, 16);
             padding: 0;
+            width: 100%;
           }
           &:hover {
           }
@@ -127,6 +167,8 @@
       visibility: hidden;
       transition: var(--tran-15);
       flex-direction: column;
+      border: 1px solid var(--clr-border-main);
+      background: rgba(0, 0, 0, 0.36);
       @include mq(md) {
         opacity: 1;
         visibility: visible;
@@ -135,6 +177,9 @@
         flex-direction: row;
         justify-content: flex-start;
         gap: var(--gap-xl);
+        border: none;
+        border-radius: 0;
+        background: transparent;
       }
       &.visible {
         opacity: 1;
@@ -145,29 +190,25 @@
         }
       }
       > li {
+        width: 100%;
         > a {
-          padding: fluid(8, 12) 0;
+          padding: fluid(8, 12) fluid(12, 16);
           display: block;
-          transition: var(--tran-45);
+          transition: var(--tran-15);
           position: relative;
           font-size: fluid(14, 16);
           font-weight: 400;
+          background: transparent;
           @include mq(md) {
-            font-size: fluid(24, 14);
-          }
-          &::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0%;
-            transition: var(--tran-15);
-            height: 1px;
-            background: var(--clr-border-main);
+            font-size: fluid(20, 14);
+            opacity: 0.8;
+            padding: fluid(12, 16) 0 0 0;
           }
           &:hover {
-            &::before {
-              width: 100%;
+            background: rgba(149, 157, 165, 0.2);
+            @include mq(md) {
+              background: transparent;
+              opacity: 1;
             }
           }
         }

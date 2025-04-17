@@ -27,7 +27,7 @@
               }
             }
             .txt {
-              padding: fluid(24, 48) fluid(32, 64);
+              padding: fluid(16, 48) fluid(24, 64);
               background: rgba(255, 255, 255, 0.08);
             }
           }
@@ -89,7 +89,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: fluid(32, 64) fluid(48, 80);
+    padding: fluid(24, 64) fluid(32, 80);
     .txt {
     }
   }

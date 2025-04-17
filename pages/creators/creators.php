@@ -13,82 +13,41 @@
 
 <!-- contents -->
 <main class="no-sub">
-    <section class="no-main-case">
-        <div class="no-section-lg">
-            <div class="no-container-xl">
-                <div class="--section-title-wrap">
-                    <hgroup>
-                        <h2 class="no-heading-md --fw-700">
-                            실제 정책자금 사례
-                        </h2>
-                    </hgroup>
+
+    <section class="no-main-creators">
+        <div class="no-main-creators__inner">
+            <div class="no-container-3xl">
+                <div class="images">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_1.jpg" alt="" class="img-1 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_2.jpg" alt="" class="img-2 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_3.jpg" alt="" class="img-3 image">
+                    <img src="<?=IMG_PATH?>/main/main_about_img_4.jpg" alt="" class="img-4 image">
                 </div>
-                <div class="no-category no-mg-md--t">
-                    <div class="no-category-swiper swiper">
-                        <ul class="swiper-wrapper">
-                            <li class="swiper-slide">
-                                <a href="#" class="active">
-                                    전체
-                                </a>
-                            </li>
-                            <li class="swiper-slide">
-                                <a href="#">
-                                    전체
-                                </a>
-                            </li>
-                            <li class="swiper-slide">
-                                <a href="#">
-                                    전체
-                                </a>
-                            </li>
-                            <li class="swiper-slide">
-                                <a href="#">
-                                    전체
-                                </a>
-                            </li>
-                        </ul>
+                <div class="txt">
+                    <h2 class="no-display-lg">THE STAGE</h2>
+                    <div>
+                        <h2 class="no-display-lg">IS SET </h2>
+                        <P class="no-main-creators-impact no-display-creator">NOW</P>
                     </div>
-                </div>
-                <div class="--cnt">
-                    <ul>
-                        <?php for ($i = 0; $i < 6; $i++) : ?>
-                        <li class="no-radius-sm">
-                            <a href="#">
-                                <figure>
-                                    <img src="<?=IMG_PATH?>/common/img_placeholder.png" alt="">
-                                </figure>
-                                <div class="txt">
-                                    <span class="--tag">정부정책자금</span>
-                                    <h4 class="no-heading-xs no-mg-md--t">이대표 / 온라인 쇼핑몰 운영</h4>
-                                    <h5 class="no-body-lg --fw-500">자금이 늘 걸림돌이었어요</h5>
-                                    <p class="no-mg-sm--t">
-                                        온라인 쇼핑몰을 운영하면서 성장 기회를 잡고 싶었지만 자금이 늘 걸림돌이었어요.A&Z 파트너스 덕분에 ...
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                        <?php endfor ;?>
-                    </ul>
+                    <h2 class="no-display-lg">YOUR TURN</h2>
 
                 </div>
             </div>
-            <div class="no-pagination no-mg-2xl--t">
-                <!-- Prev -->
-                <a href="javascript:void(0);" title="prev" class="prevnext prev">
-                    <i class="fa-regular fa-chevron-left" aria-hidden="true"></i>
-                </a>
-
-                <!-- Num -->
-                <a href="javascript:void(0);" title="1page" class="num active">1</a>
-                <a href="javascript:void(0);" title="2page" class="num">2</a>
-
-                <!-- Next -->
-                <a href="javascript:void(0);" title="next" class="prevnext next">
-                    <i class="fa-regular fa-chevron-right" aria-hidden="true"></i>
-                </a>
+            <div class="no-main-creators-final">
+                <figure>
+                    <img src="<?=IMG_PATH?>/common/create_bg.jpg" alt="">
+                </figure>
+                <article>
+                    <h3 class="no-display-sm ">이제 당신의 차례입니다</h3>
+                    <p class="no-heading-md no-mg-lg--t --fw-400">
+                        그 무대 위에 설 사람은 바로 당신입니다. <br>
+                        대표 크리에이터가 되기까지 더모어가 함께하겠습니다.
+                    </p>
+                </article>
             </div>
         </div>
     </section>
+
 
 </main>
 

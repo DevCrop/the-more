@@ -10,7 +10,7 @@
           "filename": "company"
         },
         {
-          "title": "Benefits We Offer",
+          "title": "Benefits",
           "filename": "benefits"
         }
       ]
@@ -30,7 +30,7 @@
       "dirname": "contact",
       "pages": [
         {
-          "title": "Let’s Create The Next",
+          "title": "Contact Us",
           "filename": "contact"
         },
         {

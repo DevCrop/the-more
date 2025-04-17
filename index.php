@@ -7,7 +7,7 @@
 
 <!-----INTRO---->
 
-<main>
+<main class="">
     <section class="no-main-hero">
         <div class="swiper no-main-hero-swiper">
             <ul class="swiper-wrapper">
@@ -27,7 +27,7 @@
                                     <span>WE</span> <span>BUILDS</span> <span>REAL</span> <span>CREATORS</span>
                                 </div>
                             </h4>
-                            <div class="no-heading-sm">
+                            <div class="no-heading-sm no-mg-md--t --fw-400">
                                 <P>
                                     <span>크리에이터의 다음을 설계하는</span> <span>더모어는</span> <span>여러분의 성장을 책임집니다</span>
                                 </P>
@@ -274,7 +274,7 @@
                 </figure>
                 <article>
                     <h3 class="no-display-sm ">이제 당신의 차례입니다</h3>
-                    <p class="no-heading-md no-mg-lg--t">
+                    <p class="no-heading-md no-mg-lg--t --fw-400">
                         그 무대 위에 설 사람은 바로 당신입니다. <br>
                         대표 크리에이터가 되기까지 더모어가 함께하겠습니다.
                     </p>
@@ -444,3 +444,5 @@
 
 
 </main>
+
+<?php include_once $STATIC_ROOT . '/inc/layouts/footer.php'; ?>

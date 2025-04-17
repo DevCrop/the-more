@@ -171,7 +171,7 @@ const mainHeroAnimation = () => {
     scrollTrigger: {
       trigger: section,
       start: "top 50%",
-      markers: true,
+      //markers: true,
     },
   });
 
@@ -190,66 +190,75 @@ const mainHeroAnimation = () => {
     "<"
   );
 };
-
 const mainAboutAnimation = () => {
   const about = document.querySelector(".no-main-about");
   const inner = document.querySelector(".no-main-about__inner");
   if (!about || !inner) return;
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: about,
-      start: "top top",
-      end: "+=400%",
-      scrub: true,
-      pin: inner,
-      //markers: true,
+  const mm = gsap.matchMedia();
+
+  mm.add(
+    {
+      isDesktop: "(min-width: 1025px)",
+      isTablet: "(max-width: 1024px) and (min-width: 545px)",
+      isMobile: "(max-width: 544px)",
     },
-  });
+    (context) => {
+      let yValue = "-100%";
+      if (context.conditions.isTablet) yValue = "-50%";
+      if (context.conditions.isMobile) yValue = "0%";
 
-  // 이미지 등장 + images y 슬라이드 동시에 시작
-  tl.to(".no-main-about .image", {
-    transform: "translateX(0px) translateY(0px)",
-    opacity: 1,
-    visibility: "visible",
-    filter: "blur(0px)",
-    duration: 3,
-    ease: "power3.out",
-    stagger: 0.08,
-  })
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: about,
+          start: "top top",
+          end: "+=400%",
+          scrub: true,
+          pin: inner,
+          // markers: true,
+        },
+      });
 
-    // .images 슬라이드 y 시작 (동시에 시작)
-    .to(
-      ".no-main-about .images",
-      {
-        y: "-100%",
-        duration: 2,
-        ease: "none",
-      },
-      "<" // 이미지 등장과 동시에 시작
-    )
-
-    // 텍스트 등장 (span 각각 stagger로 등장)
-    .to(
-      ".no-main-about .--section-title-wrap span",
-      {
-        y: 0,
-        duration: 1.2,
+      tl.to(".no-main-about .image", {
+        transform: "translateX(0px) translateY(0px)",
+        opacity: 1,
+        visibility: "visible",
+        filter: "blur(0px)",
+        duration: 3,
         ease: "power3.out",
-        stagger: 0.15,
-      },
-      "-=1.5"
-    )
-    .to(
-      ".no-main-about .--section-title-wrap a",
-      {
-        y: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        stagger: 0.15,
-      },
-      "-=1.5"
-    );
+        stagger: 0.08,
+      })
+        .to(
+          ".no-main-about .images",
+          {
+            y: yValue,
+            duration: 2,
+            ease: "none",
+          },
+          "<"
+        )
+        .to(
+          ".no-main-about .--section-title-wrap span",
+          {
+            y: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            stagger: 0.15,
+          },
+          "0.1"
+        )
+        .to(
+          ".no-main-about .--section-title-wrap a",
+          {
+            y: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            stagger: 0.15,
+          },
+          "0.1"
+        );
+    }
+  );
 };
 
 const mainCreatorsAnimation = () => {
@@ -280,9 +289,9 @@ const mainCreatorsAnimation = () => {
       ".no-main-creators .image",
       {
         transform: "translateX(0px) translateY(0px)",
-        duration: 1,
+        duration: 3,
         ease: "power3.out",
-        stagger: 0.1,
+        stagger: 0.15,
         opacity: 1,
         visibility: "visible",
         filter: "blur(0px)",
@@ -296,12 +305,22 @@ const mainCreatorsAnimation = () => {
       opacity: 0,
       filter: "blur(10px)",
     })
-    .to(final.querySelector("figure"), {
-      clipPath: "circle(100% at 50% 50%)",
+    .to(".no-main-creators .txt", {
       duration: 3,
       ease: "power3.out",
-      visibility: "visible",
+      opacity: 0,
+      filter: "blur(10px)",
     })
+    .to(
+      final.querySelector("figure"),
+      {
+        clipPath: "circle(100% at 50% 50%)",
+        duration: 5,
+        ease: "power3.out",
+        visibility: "visible",
+      },
+      "<0.5"
+    )
     .to(final.querySelector("article"), {
       opacity: 1,
       duration: 3,
@@ -309,73 +328,104 @@ const mainCreatorsAnimation = () => {
       visibility: "visible",
     });
 };
-
 const mainServiceAnimaion = () => {
   const service = document.querySelector(".no-main-service");
   if (!service) return;
 
+  const serviceText = service.querySelectorAll(".--section-title-wrap span");
   const serviceWrap = service.querySelector("ul");
   const serviceItems = service.querySelectorAll("li");
-  const serviceText = service.querySelectorAll(".--section-title-wrap span");
 
-  const tl = gsap.timeline({
+  // 텍스트 애니메이션은 항상 실행
+  gsap.to(serviceText, {
     scrollTrigger: {
       trigger: service,
-      start: "top top",
-      end: "+=150%", // 움직임 여유
-      scrub: true,
-      pin: true,
-      // markers: true,
+      start: "top bottom",
     },
+    y: "0%",
+    stagger: 0.15,
+    duration: 1.2,
+    ease: "power3.out",
   });
 
-  tl.to(serviceItems, {
-    opacity: 1,
-    visibility: "visible",
-    filter: "blur(0px)",
-    ease: "none", // scrub일 땐 none이 자연스러움
-  });
+  const mm = gsap.matchMedia();
 
-  tl.to(serviceWrap, {
-    y: "0%", // 현재 구조상 의미 없을 수도 있음
-    ease: "none",
-  });
+  // 768px 이상일 때: pin + timeline 애니메이션
+  mm.add("(min-width: 768px)", () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: service,
+        start: "top top",
+        end: "+=150%",
+        scrub: true,
+        pin: true,
+        // markers: true,
+      },
+    });
 
-  // 개별 li에 transform 적용 (스크롤 따라)
-  serviceItems.forEach((item, index) => {
-    let props = {
+    tl.to(serviceItems, {
+      opacity: 1,
+      visibility: "visible",
+      filter: "blur(0px)",
       ease: "none",
-    };
+    });
 
-    if (index === 0) {
-      props.y = "-4%";
-    } else if (index === 1) {
-      props.rotate = "-5deg";
-    } else if (index === 2) {
-      props.y = "-6%";
-    } else if (index === 3) {
-      props.rotate = "2deg";
-    } else if (index === 4) {
-      props.y = "-4%";
-    }
-
-    tl.to(item, props, "<");
-  });
-  tl.to(
-    serviceText,
-    {
+    tl.to(serviceWrap, {
       y: "0%",
-      stagger: 0.15,
-    },
-    "<"
-  );
-};
+      ease: "none",
+    });
 
+    serviceItems.forEach((item, index) => {
+      let props = {
+        ease: "none",
+      };
+
+      if (index === 0) {
+        props.y = "-4%";
+      } else if (index === 1) {
+        props.rotate = "-5deg";
+      } else if (index === 2) {
+        props.y = "-6%";
+      } else if (index === 3) {
+        props.rotate = "2deg";
+      } else if (index === 4) {
+        props.y = "-4%";
+      }
+
+      tl.to(item, props, "<");
+    });
+  });
+
+  // 768px 미만일 때: 각 li가 보일 때마다 fade + blur 제거
+  mm.add("(max-width: 767px)", () => {
+    serviceItems.forEach((item) => {
+      gsap.fromTo(
+        item,
+        {
+          opacity: 0,
+          filter: "blur(10px)",
+        },
+        {
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: 1.2,
+          ease: "power3.out",
+        }
+      );
+    });
+  });
+};
 const mainDiffAnimation = () => {
   const section = document.querySelector(".no-main-dfferent");
   if (!section) return;
 
   const sectionTitle = section.querySelectorAll(".--section-title-wrap span");
+  const sectionCard = section.querySelectorAll(".--cnt > ul > li");
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -394,6 +444,19 @@ const mainDiffAnimation = () => {
     ease: "power3.out",
     stagger: 0.1,
   });
+
+  tl.to(
+    sectionCard,
+    {
+      y: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1.2,
+      ease: "power3.out",
+      stagger: 0.15,
+    },
+    "-=0.8" // 타이틀 애니메이션과 약간 겹쳐서 실행되도록
+  );
 };
 
 const initLenis = () => {
@@ -481,7 +544,9 @@ const headerSingle = () => {
 
   const headerItems = header.querySelectorAll(".no-header-gnb > li");
   const headerBtn = header.querySelector(".no-header-btn");
-
+  const line = header.querySelectorAll(".line");
+  const body = document.querySelector("body");
+  console.log();
   headerItems.forEach((item) => {
     const submenu = item.querySelector(".no-header-lnb");
 
@@ -498,6 +563,36 @@ const headerSingle = () => {
 
   headerBtn.addEventListener("click", function () {
     header.classList.toggle("visible");
+    body.classList.toggle("--of-h");
+    if (header.classList.contains("visible")) {
+      gsap.to(line, {
+        width: "100%",
+        duration: 1.8,
+        ease: "power3.out",
+      });
+
+      gsap.to(".no-header a > div", {
+        y: "0%",
+        opacity: 1,
+        duration: 1.8,
+        ease: "power3.out",
+        stagger: 0.05,
+      });
+    } else {
+      gsap.to(line, {
+        width: "0%",
+        duration: 1.8,
+        ease: "power3.in",
+      });
+
+      gsap.to(".no-header a > div", {
+        y: "100%",
+        opacity: 0,
+        duration: 1.8,
+        ease: "power3.out",
+        stagger: 0.05,
+      });
+    }
   });
 
   const handleScroll = () => {

@@ -20,7 +20,7 @@
   height: 100vh;
   overflow: hidden;
   @include mq(lg) {
-    height: fluid(360, 600);
+    height: fluid(240, 600);
     position: relative;
   }
   .no-marquee {

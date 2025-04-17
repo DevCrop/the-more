@@ -28,7 +28,7 @@
                                 <img src="<?=IMG_PATH?>/common/image_placeholder.png" alt="">
                             </figure>
                             <div class="txt">
-                                <h4 class="no-heading-xl">Professional Training</h4>
+                                <h4 class="no-heading-lg">Professional Training</h4>
                             </div>
                         </li>
                         <li>
@@ -36,7 +36,7 @@
                                 <img src="<?=IMG_PATH?>/common/image_placeholder.png" alt="">
                             </figure>
                             <div class="txt">
-                                <h4 class="no-heading-xl">Branded Content Support</h4>
+                                <h4 class="no-heading-lg">Branded Content Support</h4>
                             </div>
                         </li>
                         <li>
@@ -44,7 +44,7 @@
                                 <img src="<?=IMG_PATH?>/common/image_placeholder.png" alt="">
                             </figure>
                             <div class="txt">
-                                <h4 class="no-heading-xl">1:1 Feedback & Mentoring</h4>
+                                <h4 class="no-heading-lg">1:1 Feedback & Mentoring</h4>
                             </div>
                         </li>
                         <li>
@@ -52,7 +52,7 @@
                                 <img src="<?=IMG_PATH?>/common/image_placeholder.png" alt="">
                             </figure>
                             <div class="txt">
-                                <h4 class="no-heading-xl">Studio & Equipment Access</h4>
+                                <h4 class="no-heading-lg">Studio & Equipment Access</h4>
                             </div>
                         </li>
                         <li>
@@ -60,7 +60,7 @@
                                 <img src="<?=IMG_PATH?>/common/image_placeholder.png" alt="">
                             </figure>
                             <div class="txt">
-                                <h4 class="no-heading-xl">Legal & Tax Advisory</h4>
+                                <h4 class="no-heading-lg">Legal & Tax Advisory</h4>
                             </div>
                         </li>
                         <li>
@@ -68,7 +68,7 @@
                                 <img src="<?=IMG_PATH?>/common/image_placeholder.png" alt="">
                             </figure>
                             <div class="txt">
-                                <h4 class="no-heading-xl">Brand Management & Growth</h4>
+                                <h4 class="no-heading-lg">Brand Management & Growth</h4>
                             </div>
                         </li>
                     </ul>
